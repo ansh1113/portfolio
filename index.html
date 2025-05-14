@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansh Bhansali</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts (Poppins and Space Mono) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo">Ansh Bhansali</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">What I Do</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#ideas">Ideas Lab</a></li>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div id="particles-js"></div>
+    <div class="header-content">
+      <div class="header-left" data-aos="fade-up">
+        <p>Inventing Tomorrow’s Robots</p>
+        <p class="tagline">Robotics, AI, and creative engineering - exploring the future, one project at a time.</p>
+        <div class="contact-buttons">
+          <a href="mailto:anshbhansali5@gmail.com" class="contact-btn">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          <a href="https://github.com/ansh1113" target="_blank" class="contact-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="http://www.linkedin.com/in/a-b-b3303a226/" target="_blank" class="contact-btn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <canvas id="robotCanvas" width="200" height="200" class="glow-effect" data-aos="fade-up" data-aos-delay="200"></canvas>
+    </div>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="about-content glass-card">
+      <img src="assets/profile.JPG" alt="Ansh Bhansali" class="profile-pic">
+      <div class="about-text">
+        <p>Hi! I’m Ansh, a robotics engineer and perpetual tinkerer. I love building intelligent machines...</p>
+        <p>I believe in the power of curiosity, hands-on experimentation, and sharing ideas...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" data-aos="fade-up">
+    <h2>What I Do</h2>
+    <div class="work-cards">
+      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-robot"></i>
+        <h3>Robotics Engineering</h3>
+        <p>Designing and programming robots - from embedded systems to full autonomy using SLAM, ROS2, and AI.</p>
+      </div>
+      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-brain"></i>
+        <h3>AI & Machine Learning</h3>
+        <p>Applying RL, computer vision, and sensor fusion to make robots smarter, safer, and more adaptable.</p>
+      </div>
+      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Creative Problem Solving</h3>
+        <p>Turning ambitious ideas into prototypes, and always looking for the next big challenge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-content">
+          <span class="timeline-date">Aug 2025 – Apr 2026</span>
+          <h3>MEng. in Autonomy and Robotics</h3>
+          <p>University of Illinois Urbana-Champaign, IL, USA</p>
+          <ul>
+            <li>SLAM, Computer Vision, Motion Planning, RL, Control Systems</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-content">
+          <span class="timeline-date">Dec 2021 – Jun 2025</span>
+          <h3>B.Tech. in Electronics and Telecommunications</h3>
+          <p>Sardar Patel Institute of Technology, Mumbai, IN</p>
+        </div>
+      </div>
+      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+        <div class="timeline-content">
+          <span class="timeline-date">Jan 2023 – May 2025</span>
+          <h3>Minors in Management</h3>
+          <p>S.P. Jain Institute of Management and Research, Mumbai, IN</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+        <div class="timeline-content">
+          <span class="timeline-date">May 2024 – May 2025</span>
+          <h3>Electronics Engineering Intern</h3>
+          <p>Dimension Six Technologies, Mumbai, IN</p>
+          <ul>
+            <li>Enhanced STM32 firmware for e-bike actuators (range +40%, speed 30km/h).</li>
+            <li>Designed 4-layer PCB for Electric Speed Controller (15% less power loss).</li>
+            <li>Implemented RFID payments, ESP32S3 remote monitoring, and optimized power management.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+        <div class="timeline-content">
+          <span class="timeline-date">Jan 2024 – Jun 2024</span>
+          <h3>Robotics Research Intern</h3>
+          <p>Indian Institute of Technology, Bombay, Mumbai, IN</p>
+          <ul>
+            <li>Developed SLAM-based autonomous robot using ROS2 and G-mapping (95% nav accuracy).</li>
+            <li>Improved localisation by 20% via sensor fusion (IMU, GPS, RGB-D).</li>
+            <li>Designed A* and RRT motion planning for stair-climbing; integrated YOLOv3 for human detection.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </section>
+
+  <section id="ideas" data-aos="fade-up">
+    <h2>Ideas Lab</h2>
+    <p class="ideas-intro">A few of my favorite “next big thing” robotics ideas—let’s build the future together.</p>
+    <div class="ideas-grid">
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Wall & Roof Climbing Inspection Robot</h3>
+        <p>A modular robot capable of adhering to and traversing vertical and inverted surfaces. Designed for industrial inspection, cleaning, and rescue in hazardous environments. Uses advanced adhesion, SLAM, and AI-based path planning.</p>
+      </div>
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Robotic Sorting System</h3>
+        <p>Vision-driven conveyor robot for automated sorting in warehouses or recycling plants. Integrates real-time object detection and adaptive grippers for high-speed, error-free sorting.</p>
+      </div>
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Assistive Robotic Wheelchair</h3>
+        <p>An intelligent wheelchair with autonomous navigation, obstacle avoidance, and voice/gesture control. Empowers users with mobility challenges to navigate complex environments safely.</p>
+      </div>
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Solar-Powered Autonomous Rover</h3>
+        <p>Self-sustaining rover for long-duration outdoor tasks. Combines solar charging, energy management, and real-time route optimization for agriculture, monitoring, or exploration.</p>
+      </div>
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="500">
+        <h3>Gesture & Voice Controlled Service Robot</h3>
+        <p>A mobile robot that responds to natural gestures and spoken commands to assist in homes, labs, or offices. Integrates multi-modal AI for intuitive interaction.</p>
+      </div>
+      <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="600">
+        <h3>Traffic Drone for Cyclists</h3>
+        <p>An overhead drone that monitors traffic and provides real-time alerts and navigation guidance to cyclists, enhancing safety and route efficiency in urban environments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition" data-aos="fade-up">
+    <h2>Recognition</h2>
+    <ul class="awards-list glass-card">
+      <li>Smart India Hackathon Finalist: Ganga river water monitoring system for pollution prediction.</li>
+      <li>Top 10, AAS CanSat Competition: Built a fully functional CanSat with autonomous parachute deployment.</li>
+      <li>Research Paper: Leveraging Robotics to Address Social Problems in India.</li>
+    </ul>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Let’s Connect</h2>
+    <form id="contactForm" class="glass-card">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your message" rows="5" required></textarea>
+      <button type="submit">Send 🚀</button>
+      <span id="formStatus"></span>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Ansh Bhansali — Crafted with 🤖</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: '#53a7f5' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#53a7f5', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+
+    // Initialize AOS
+    AOS.init({ duration: 1000, once: true });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
