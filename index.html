@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ansh Bhansali</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome CDN for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Google Fonts (Poppins and Space Mono) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- AOS for animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -18,11 +15,11 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#work">What I Do</a></li>
+      <li><a href="#vision">Vision</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#ideas">Ideas Lab</a></li>
-      <li><a href="#vision">Vision</a></li>
       <li><a href="#recognition">Recognition</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -82,13 +79,23 @@
     </div>
   </section>
 
+  <section id="vision" data-aos="fade-up">
+    <h2>My Vision</h2>
+    <div class="vision-content glass-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-infinity"></i>
+        <h3>The Universal Humanoid Robot</h3>
+        <p class="vision-text">My long-term goal is to build towards a universal general-purpose humanoid robot, one that doesn’t just follow hardcoded instructions, but understands its own capabilities, self-generates code for dynamic tasks, and adapts across domains. <em>One robot. Many lives.</em>em> Whether it’s home assistance, warehouse operations, disaster zones, city patrol, or military coordination, the core platform stays the same, modular attachments and AI-generated control logic enable task-specific execution.
+The user defines the task. The robot interprets it, codes for it on the fly, and executes. Then resets, ready for the next job. All governed through a secure control app giving users absolute control from physical access restrictions (like blocking specific zones) to real-time overrides. It’s not just robotics, it’s autonomy redefined.
+    </div>
+  </section>
+
   <section id="education" data-aos="fade-up">
     <h2>Education</h2>
     <div class="timeline">
       <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="100">
         <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
         <div class="timeline-content">
-          <span class="timeline-date">Aug 2025 – July 2026</span>
+          <span class="timeline-date">Aug 2025 – Apr 2026</span>
           <h3>MEng. in Autonomy and Robotics</h3>
           <p>University of Illinois Urbana-Champaign, IL, USA</p>
           <ul>
@@ -154,7 +161,7 @@
 
   <section id="ideas" data-aos="fade-up">
     <h2>Ideas Lab</h2>
-    <p class="ideas-intro">A few of my favorite “next big thing” robotics ideas, let’s build the future together.</p>
+    <p class="ideas-intro">A few of my favorite “next big thing” robotics ideas—let’s build the future together.</p>
     <div class="ideas-grid">
 
     <div class="idea-card glass-card" data-aos="fade-up" data-aos-delay="100">
@@ -213,20 +220,8 @@
       </p>
     </div>
 
-  </div>
-</section>
-
-<section id="vision" class="section">
-  <div class="container" data-aos="fade-up">
-    <h2 class="section-title">Vision</h2>
-    <p class="section-description">
-      I'm building toward a universal general-purpose humanoid robot, one that doesn’t just follow hardcoded instructions, but understands its own capabilities, self-generates code for dynamic tasks, and adapts across domains. One robot. Many lives. Whether it’s home assistance, warehouse operations, disaster zones, city patrol, or military coordination, the core platform stays the same, modular attachments and AI-generated control logic enable task-specific execution.
-    </p>
-    <p class="section-description">
-      The user defines the task. The robot interprets it, codes for it on the fly, and executes. Then resets, ready for the next job. All governed through a secure control app giving users absolute control from physical access restrictions (like blocking specific zones) to real-time overrides. It’s not just robotics, it’s autonomy redefined.
-    </p>
-  </div>
-</section>
+    </div>
+  </section>
 
   <section id="recognition" data-aos="fade-up">
     <h2>Recognition</h2>
@@ -239,20 +234,21 @@
 
   <section id="contact" data-aos="fade-up">
     <h2>Let’s Connect</h2>
-    <form id="contactForm" class="glass-card">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Your message" rows="5" required></textarea>
-      <button type="submit">Send 🚀</button>
-      <span id="formStatus"></span>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="glass-card">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+        <button type="submit">Send 🚀</button>
+        <span id="formStatus"></span>
     </form>
   </section>
+  
+  <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
   <footer>
     <p>© 2025 Ansh Bhansali — Crafted with 🤖</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
