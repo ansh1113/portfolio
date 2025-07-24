@@ -137,41 +137,31 @@ if (projectsGrid) {
   });
 }
 
-// --- Functional Contact Form ---
+// --- Contact Form (mailto functionality) ---
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
-        const status = document.getElementById('formStatus');
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
+    // Get the form data
+    const name = contactForm.querySelector('input[name="name"]').value;
+    const fromEmail = contactForm.querySelector('input[name="email"]').value;
+    const message = contactForm.querySelector('textarea[name="message"]').value;
+    const status = document.getElementById('formStatus');
 
-            if (response.ok) {
-                status.textContent = "Thank you! Your message has been sent.";
-                form.reset();
-            } else {
-                // Try to get more specific error from Formspree
-                const responseData = await response.json();
-                if (responseData.errors) {
-                    const errorMsg = responseData.errors.map(error => error.message).join(', ');
-                    status.textContent = `Oops! There was a problem: ${errorMsg}`;
-                } else {
-                    status.textContent = "Oops! There was a problem submitting your form.";
-                }
-            }
-        } catch (error) {
-            status.textContent = "Oops! There was a problem submitting your form.";
-        }
+    // Construct the mailto link
+    const subject = `Contact from Portfolio - ${name}`;
+    const body = `You have a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${fromEmail}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:anshbhansali5@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-        setTimeout(() => { status.textContent = ""; }, 5000);
-    });
+    // Open the user's default email client
+    window.location.href = mailtoLink;
+
+    // Provide feedback to the user
+    status.textContent = "Opening your email client...";
+    contactForm.reset();
+    setTimeout(() => { status.textContent = ""; }, 5000);
+  });
 }
 
 // --- Back to Top Button ---
