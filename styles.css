@@ -33,7 +33,6 @@ body {
   width: 30px; height: 30px; border: 1px solid var(--accent);
   transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
-/* When hovering over links */
 body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgba(0, 255, 204, 0.1); border-color: var(--secondary); }
 
 /* --- BACKGROUND --- */
@@ -66,7 +65,10 @@ nav {
 /* --- HERO --- */
 header { min-height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; padding-top: 80px; }
 .header-content { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-.text-zone { max-width: 600px; z-index: 10; position: relative; }
+
+/* FIX FOR GLOBE CLICKING: Text Zone allows clicks through, but buttons capture them */
+.text-zone { max-width: 600px; z-index: 10; position: relative; pointer-events: none; }
+.text-zone h1, .text-zone .console-box, .text-zone .status-indicator, .cta-group { pointer-events: auto; }
 
 .status-indicator {
   font-family: var(--font-display); font-size: 0.75rem; color: var(--accent);
@@ -103,7 +105,7 @@ h1 { font-family: var(--font-display); font-size: 3.5rem; line-height: 1.1; marg
 #canvas-container { 
     width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; 
     position: absolute; right: -5%; top: 50%; transform: translateY(-50%); 
-    z-index: 1; pointer-events: auto; 
+    z-index: 1; pointer-events: auto; /* ALLOWS GLOBE ROTATION */
 }
 
 /* --- SECTIONS --- */
