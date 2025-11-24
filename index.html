@@ -3,246 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ansh Bhansali</title>
+  <title>Ansh Bhansali | Robotics Engineer</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
+
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
   <nav>
-    <div class="logo">Ansh Bhansali</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">What I Do</a></li>
-      <li><a href="#vision">Vision</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#recognition">Recognition</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="logo">&lt;Ansh_Bhansali /&gt;</div>
+    <div class="nav-links">
+      <a href="#about"><span class="nav-num">01.</span> SYS_INFO</a>
+      <a href="#vision"><span class="nav-num">02.</span> VISION</a>
+      <a href="#projects"><span class="nav-num">03.</span> MODULES</a>
+      <a href="#contact"><span class="nav-num">04.</span> COMM_LINK</a>
+    </div>
   </nav>
 
-  <header>
-    <div id="particles-js"></div>
+  <header id="about">
     <div class="header-content">
-      <div class="header-left" data-aos="fade-up">
-        <p>Inventing Tomorrow’s Robots</p>
-        <p class="tagline">Robotics, AI, and creative engineering - exploring the future, one project at a time.</p>
-        <div class="contact-buttons">
-          <a href="mailto:anshbhansali5@gmail.com" class="contact-btn">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <a href="https://github.com/ansh1113" target="_blank" class="contact-btn">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="http://www.linkedin.com/in/a-b-b3303a226/" target="_blank" class="contact-btn">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
+      <div class="text-zone" data-aos="fade-right">
+        <div class="status-indicator">
+          <span class="blink"></span> SYSTEM ONLINE // URBANA, IL
+        </div>
+        <h1>AUTONOMY <br><span class="highlight">ARCHITECT</span></h1>
+        
+        <div class="console-box">
+            <p class="console-text"><span class="prompt">></span> Initializing ROS2 nodes...</p>
+            <p class="console-text"><span class="prompt">></span> Loading SLAM algorithms... <span class="success">[OK]</span></p>
+            <p class="console-text"><span class="prompt">></span> Calibrating perception pipeline...</p>
+        </div>
+
+        <p class="tagline">Building the brain and body of the next generation of intelligent machines.</p>
+        
+        <div class="cta-group">
+          <a href="#projects" class="btn primary">VIEW_PROJECTS</a>
+          <a href="Resume_Ansh_Bhansali.pdf" target="_blank" class="btn secondary"><i class="fas fa-download"></i> DOWNLOAD_LOGS (RESUME)</a>
         </div>
       </div>
-      <canvas id="robotCanvas" width="200" height="200" class="glow-effect" data-aos="fade-up" data-aos-delay="200"></canvas>
+      
+      <div id="canvas-container"></div>
     </div>
   </header>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <div class="about-content glass-card">
-      <img src="profile.JPG" alt="Ansh Bhansali" class="profile-pic">
-      <div class="about-text">
-        <p>Hi! I’m Ansh, a robotics engineer and perpetual tinkerer and I love building intelligent machines.</p>
-        <p>I believe in the power of curiosity, experimentation, and sharing ideas.</p>
-      </div>
+  <section id="vision">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>VISION_PROTOCOL</h2>
+      <div class="line"></div>
+    </div>
+    
+    <div class="vision-container" data-aos="fade-up">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="buttons">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="title">mission_statement.txt</span>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">></span> <span class="comment"># The robotics industry is at a turning point.</span></p>
+                <p><span class="prompt">></span> echo $CURRENT_OBJECTIVE</p>
+                <p class="output">"Build the robotic smartphone: A Universal Chassis + Modular Skill Ecosystem."</p>
+                <br>
+                <p><span class="prompt">></span> <span class="comment"># Guiding Principle:</span></p>
+                <p class="highlight-text">"One Robot. Many Lives."</p>
+                <br>
+                <p><span class="prompt">></span> <span class="comment"># We are moving beyond single-purpose tools.</span></p>
+                <p><span class="prompt">></span> <span class="comment"># I am engineering the Core Intelligence that allows robots to master any skill.</span></p>
+                <p><span class="prompt">></span> <span class="cursor">_</span></p>
+            </div>
+        </div>
     </div>
   </section>
 
-  <section id="work" data-aos="fade-up">
-    <h2>What I Do</h2>
-    <div class="work-cards">
-      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-robot"></i>
-        <h3>Robotics Engineering</h3>
-        <p>Designing and programming robots - from embedded systems to full autonomy using SLAM, ROS2, and AI.</p>
-      </div>
-      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-brain"></i>
-        <h3>AI & Machine Learning</h3>
-        <p>Applying RL, computer vision, and sensor fusion to make robots smarter, safer, and more adaptable.</p>
-      </div>
-      <div class="work-card glass-card" data-aos="fade-up" data-aos-delay="300">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Creative Problem Solving</h3>
-        <p>Turning ambitious ideas into prototypes, and always looking for the next big challenge.</p>
-      </div>
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>RK_MODULES (PROJECTS)</h2>
+      <div class="line"></div>
     </div>
-  </section>
-
-  <section id="vision" data-aos="fade-up">
-  <h2>My Vision</h2>
-  <div class="vision-content glass-card" data-aos="fade-up" data-aos-delay="100">
-      <h3>The Humanoid as a Platform</h3>
-      <p class="vision-text">
-          The robotics industry is at a turning point. It can continue building single-purpose tools, the digital calculators and the cameras, in a world that is ready for the smartphone, or it can forge a new path. My vision is to create that path by building the robotic "smartphone": a universal platform designed to master any skill imaginable.
-      </p>
-    <br>
-      <p class="vision-text">
-          This work is anchored by my guiding principle: <strong>"One Robot. Many lives."</strong> It’s not just about creating a machine, but a new paradigm for human-robot collaboration that can adapt to any environment and elevate any life it touches. I envision this platform becoming a seamless part of our world: in our homes, our offices, and our hospitals; managing warehouses, patrolling streets, and leading the way in disaster response.
-      </p>
-    <br>
-      <p class="vision-text">
-          The foundation is the <strong>Universal Chassis</strong> - a single, general-purpose hardware body, engineered for an unparalleled range of motion and dexterity. This core body is then augmented by a system of <strong>modular attachments</strong>, allowing it to physically specialize for certain domains, from delicate medical sensors to heavy-duty industrial grippers, without compromising its fundamental generality.
-      </p>
-    <br>
-      <p class="vision-text">
-          The robot's true, limitless capability comes from its <strong>Skill Ecosystem</strong>. Like an app store for robotics, this is an ever-expanding library of mastered abilities. Each skill, from complex logistical analysis to delicate domestic tasks, is a perfected, verified block of capability.
-      </p>
-    <br>
-      <p class="vision-text">
-          The "magic" is the <strong>Core Intelligence</strong>. This AI is the robot's operating system. It translates human intent into flawless execution. When given a complex command, it instantly orchestrates a novel sequence of skills from its library to compose the perfect solution, a symphony of mastered actions.
-      </p>
-    <br>
-      <p class="vision-text">
-          This architecture is the key to achieving the impossible: a robot that is both a generalist and a master. It sidesteps the "jack-of-all-trades" paradox because its generality arises from its ability to run thousands of specialized, mastered "skill-apps" to perfection.
-      </p>
-    <br>
-      <p class="vision-text">
-          Crucially, this entire system is built on a non-negotiable foundation of safety and trust. The user is always in command, with absolute authority through a secure control app. This authority is made tangible through innovative features like a <strong>"simulation-first" protocol</strong>: before any complex new action, the robot runs a virtual test of its plan, which the user can view and approve. Only with explicit consent does the robot act in the real world.
-      </p>
-    <br>
-      <p class="vision-text">
-          This isn't just about building the next step in automation. It's about building a partner for humanity.
-      </p>
-  </div>
-</section>
-
-  <section id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <div class="timeline">
-      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-date">Aug 2025 – July 2026</span>
-          <h3>MEng. in Autonomy and Robotics</h3>
-          <p>University of Illinois Urbana-Champaign, IL, USA</p>
-          <ul>
-            <li>Humanoid Robots</li>
-            <li>Computer Vision</li>
-            <li>Safe Autonomy</li>
-            <li>Deep Learning</li>
-            <li>Control Systems</li>
-          </ul>
+    <div class="projects-grid" id="projectsGrid">
         </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>ESTABLISH_UPLINK</h2>
+        <div class="line"></div>
       </div>
-      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-date">Dec 2021 – Jun 2025</span>
-          <h3>B.Tech. in Electronics and Telecommunications</h3> 
-          <p>Sardar Patel Institute of Technology, Mumbai, IN</p> 
-        </div> 
-      </div> 
-      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="300"> 
-        <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div> 
-        <div class="timeline-content"> 
-          <span class="timeline-date">Jan 2023 – May 2025</span> 
-          <h3>Minors in Management</h3> 
-          <p>S.P. Jain Institute of Management and Research, Mumbai, IN</p> 
-        </div> 
-      </div> 
-    </div> 
-  </section>
-
-  <section id="experience" data-aos="fade-up">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-date">May 2024 – May 2025</span>
-          <h3>Electronics Engineering Intern</h3>
-          <p>Dimension Six Technologies, Mumbai, IN</p>
-          <ul>
-            <li>Enhanced STM32 firmware with a novel power management algorithm, increasing e-bike range by 40%.</li>
-            <li>Designed and routed a 4-layer PCB in KiCad for a custom ESC, reducing power losses by 15% under peak load.</li>
-            <li>Deployed IoT monitoring with ESP32S3 + RFID for secure automated payments.</li>
-          </ul>
-        </div>
+      
+      <div class="contact-wrapper">
+          <p>Ready to collaborate on the future of autonomy?</p>
+          <a href="mailto:anshbhansali5@gmail.com" class="btn primary big-btn">INITIALIZE_COMMUNICATION</a>
+          
+          <div class="social-links">
+              <a href="https://github.com/ansh1113" target="_blank"><i class="fab fa-github"></i> GITHUB</a>
+              <a href="http://www.linkedin.com/in/a-b-b3303a226/" target="_blank"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+          </div>
       </div>
-      <div class="timeline-item glass-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-date">Jan 2024 – Jun 2024</span>
-          <h3>Robotics Research Intern</h3>
-          <p>Indian Institute of Technology, Bombay, Mumbai, IN</p>
-          <ul>
-            <li>Developed SLAM-based autonomous robot in ROS2 with 95% navigation accuracy.</li>
-            <li>Improved localisation by 20% via sensor fusion of IMU, GPS, and RGB-D camera.</li>
-            <li>Integrated YOLOv3 for human detection and stair-climbing navigation.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </section>
-
-  <section id="projects" data-aos="fade-up">
-    <h2>Featured Projects</h2>
-    <div class="projects-grid" id="projectsGrid"></div>
-  </section>
-
-  <section id="recognition" data-aos="fade-up">
-    <h2>Recognition</h2>
-    <ul class="awards-list glass-card">
-      <li>Smart India Hackathon Finalist: Ganga river water monitoring system for pollution prediction.</li>
-      <li>Top 10, AAS CanSat Competition: Built a fully functional CanSat with autonomous parachute deployment.</li>
-    </ul>
-  </section>
-
-  <!-- CONTACT SECTION -->
-<section id="contact" data-aos="fade-up">
-  <h2>Let’s Connect</h2>
-  <form id="contactForm" class="glass-card">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Your message" rows="5" required></textarea>
-      <button type="submit">Send 🚀</button>
-      <span id="formStatus"></span>
-  </form>
-</section>
-  
-  <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
   <footer>
-    <p> </p>
+      <p>SYSTEM_ID: ANSH_BHANSALI // END_OF_LINE</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 50, density: { enable: true, value_area: 800 } },
-        color: { value: '#53a7f5' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#53a7f5', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2 }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-        modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-      },
-      retina_detect: true
-    });
-
-    AOS.init({ duration: 1000, once: true });
-  </script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
-
-
-
-
