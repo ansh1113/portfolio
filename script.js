@@ -1,162 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// --- 1. CUSTOM ROBOTIC CURSOR ---
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-window.addEventListener("mousemove", function (e) {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    // Dot follows instantly
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Outline follows with lag (robotic feeling)
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
-
-// Add hover effect to clickable elements
-const clickables = document.querySelectorAll('a, button, .research-card, .project-card');
-clickables.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-});
-
-
-// --- 2. GSAP SCROLL ANIMATIONS (The "Mechanical Slide") ---
-gsap.registerPlugin(ScrollTrigger);
-
-// Animate Section Headers (Slide Line)
-gsap.utils.toArray('.line').forEach(line => {
-    gsap.from(line, {
-        scrollTrigger: { trigger: line, start: "top 80%" },
-        scaleX: 0, transformOrigin: "left", duration: 1, ease: "power3.out"
-    });
-});
-
-// Animate Research Cards (Slot in from right)
-gsap.utils.toArray('.research-card').forEach((card, i) => {
-    gsap.fromTo(card, 
-        { x: 100, opacity: 0 },
-        { 
-            scrollTrigger: { trigger: card, start: "top 85%" },
-            x: 0, opacity: 1, duration: 0.8, delay: i * 0.1, ease: "back.out(1.7)" 
-        }
-    );
-});
-
-// Animate Skill Categories (Slot in from bottom)
-gsap.utils.toArray('.skill-category').forEach((cat, i) => {
-    gsap.fromTo(cat, 
-        { y: 50, opacity: 0 },
-        { 
-            scrollTrigger: { trigger: cat, start: "top 85%" },
-            y: 0, opacity: 1, duration: 0.6, delay: i * 0.1, ease: "power2.out" 
-        }
-    );
-});
-
-// Animate Logs (Sequential fade)
-gsap.utils.toArray('.log-entry').forEach((log, i) => {
-    gsap.fromTo(log,
-        { x: -50, opacity: 0 },
-        {
-            scrollTrigger: { trigger: log, start: "top 90%" },
-            x: 0, opacity: 1, duration: 0.6, ease: "power2.out"
-        }
-    );
-});
-
-// --- 3. VISION TYPEWRITER EFFECT ---
-const visionText = `
-> # THE OBJECTIVE
-The robotics industry is building calculators. I want to build the smartphone.
-
-> # THE CONCEPT
-"One Robot. Many Lives."
-My vision is a Universal Chassis augmented by a Skill Ecosystem. Instead of single-purpose hardware, we need a core intelligence that can download "Physical Apps" - mastered skills for logistics, caregiving, or disaster response.
-
-> # THE IMPLEMENTATION
-The key is not just mechanics, but the Core Intelligence - an OS that translates human intent into flawless execution using verified skill blocks. This system must be built on a foundation of "Simulation-First" safety protocols.
-`;
-
-const typeWriterElement = document.getElementById('typewriter-text');
-let hasTyped = false;
-
-ScrollTrigger.create({
-    trigger: "#vision",
-    start: "top 60%",
-    onEnter: () => {
-        if (!hasTyped) {
-            typeWriter(typeWriterElement, visionText);
-            hasTyped = true;
-        }
-    }
-});
-
-function typeWriter(element, text, i = 0) {
-    if (i < text.length) {
-        if (text.substring(i, i+1) === '\n') {
-            element.innerHTML += '<br>';
-        } else {
-            element.innerHTML += text.charAt(i);
-        }
-        setTimeout(() => typeWriter(element, text, i + 1), 20); // Typing speed
-    }
-}
-
-
-// --- 4. THREE.JS SCENE (FIXED INTERACTIVITY) ---
-const container = document.getElementById('canvas-container');
-
-if (container) {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 2.2;
-
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
-
-    // Particle Sphere
-    const geometry = new THREE.IcosahedronGeometry(1.2, 4);
-    const material = new THREE.PointsMaterial({ color: 0x00ffcc, size: 0.015, transparent: true, opacity: 0.6 });
-    const sphere = new THREE.Points(geometry, material);
-    scene.add(sphere);
-
-    // Wireframe Overlay
-    const wireGeo = new THREE.IcosahedronGeometry(1.21, 1);
-    const wireMat = new THREE.MeshBasicMaterial({ color: 0x7000ff, wireframe: true, transparent: true, opacity: 0.2 });
-    const wireframe = new THREE.Mesh(wireGeo, wireMat);
-    scene.add(wireframe);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true; controls.enableZoom = false; controls.autoRotate = true; controls.autoRotateSpeed = 1.5;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        sphere.rotation.y += 0.001;
-        wireframe.rotation.x -= 0.001;
-        controls.update();
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
-        if(container) {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-    });
-}
-
-// --- 5. PROJECT DATA INJECTION ---
+// --- 1. PROJECT DATA INJECTION (MUST RUN FIRST) ---
 const projects = [
   {
     title: "Quadruped Locomotion (RL)",
@@ -198,14 +43,14 @@ const projects = [
 
 const projectsGrid = document.getElementById('projectsGrid');
 if (projectsGrid) {
+    projectsGrid.innerHTML = ''; // Clear existing content to prevent duplicates
     projects.forEach(p => {
         const tagsHTML = p.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
         const linkText = p.repo.includes('youtube') ? 'WATCH_DEMO' : 'SOURCE_CODE';
         const icon = p.repo.includes('youtube') ? '<i class="fab fa-youtube"></i>' : '<i class="fab fa-github"></i>';
 
-        // Add 'project-card' class for animation targeting
         projectsGrid.innerHTML += `
-            <div class="project-card" data-aos="fade-up">
+            <div class="project-card">
                 <h3>${p.title}</h3>
                 <div class="tags">${tagsHTML}</div>
                 <p class="project-desc">${p.desc}</p>
@@ -214,5 +59,149 @@ if (projectsGrid) {
                 </div>
             </div>
         `;
+    });
+}
+
+// --- 2. GSAP SCROLL ANIMATIONS (RUNS AFTER CONTENT IS THERE) ---
+setTimeout(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate Research Cards
+    gsap.utils.toArray('.research-card').forEach((card, i) => {
+        gsap.fromTo(card, 
+            { x: 100, opacity: 0 },
+            { 
+                scrollTrigger: { trigger: card, start: "top 85%" },
+                x: 0, opacity: 1, duration: 0.8, delay: i * 0.1, ease: "back.out(1.7)" 
+            }
+        );
+    });
+
+    // Animate Project Cards (Now they exist!)
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+        gsap.fromTo(card, 
+            { y: 50, opacity: 0 },
+            { 
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                y: 0, opacity: 1, duration: 0.6, delay: i * 0.1, ease: "power2.out" 
+            }
+        );
+    });
+
+    // Animate Logs
+    gsap.utils.toArray('.log-entry').forEach((log, i) => {
+        gsap.fromTo(log,
+            { x: -50, opacity: 0 },
+            {
+                scrollTrigger: { trigger: log, start: "top 90%" },
+                x: 0, opacity: 1, duration: 0.6, ease: "power2.out"
+            }
+        );
+    });
+    
+    // Animate Vision Container
+    gsap.fromTo('.vision-container', 
+        { scale: 0.9, opacity: 0 },
+        {
+            scrollTrigger: { trigger: '#vision', start: "top 75%" },
+            scale: 1, opacity: 1, duration: 1, ease: "power2.out"
+        }
+    );
+
+}, 100);
+
+// --- 3. VISION TYPEWRITER EFFECT ---
+const visionText = `
+> # THE OBJECTIVE
+The robotics industry is building calculators. I want to build the smartphone.
+
+> # THE CONCEPT
+"One Robot. Many Lives."
+My vision is a Universal Chassis augmented by a Skill Ecosystem. Instead of single-purpose hardware, we need a core intelligence that can download "Physical Apps" - mastered skills for logistics, caregiving, or disaster response.
+
+> # THE IMPLEMENTATION
+The key is not just mechanics, but the Core Intelligence - an OS that translates human intent into flawless execution using verified skill blocks. This system must be built on a foundation of "Simulation-First" safety protocols.
+`;
+
+const typeWriterElement = document.getElementById('typewriter-text');
+let hasTyped = false;
+
+ScrollTrigger.create({
+    trigger: "#vision",
+    start: "top 60%",
+    onEnter: () => {
+        if (!hasTyped && typeWriterElement) {
+            typeWriterElement.innerHTML = ""; // Clear initial text
+            typeWriter(typeWriterElement, visionText);
+            hasTyped = true;
+        }
+    }
+});
+
+function typeWriter(element, text, i = 0) {
+    if (i < text.length) {
+        if (text.substring(i, i+1) === '\n') {
+            element.innerHTML += '<br>';
+        } else {
+            element.innerHTML += text.charAt(i);
+        }
+        setTimeout(() => typeWriter(element, text, i + 1), 20);
+    }
+}
+
+// --- 4. CUSTOM ROBOTIC CURSOR ---
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+if(cursorDot && cursorOutline) {
+    window.addEventListener("mousemove", function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+    });
+}
+
+// --- 5. THREE.JS SCENE ---
+const container = document.getElementById('canvas-container');
+
+if (container) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.z = 2.2;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.IcosahedronGeometry(1.2, 4);
+    const material = new THREE.PointsMaterial({ color: 0x00ffcc, size: 0.015, transparent: true, opacity: 0.6 });
+    const sphere = new THREE.Points(geometry, material);
+    scene.add(sphere);
+
+    const wireGeo = new THREE.IcosahedronGeometry(1.21, 1);
+    const wireMat = new THREE.MeshBasicMaterial({ color: 0x7000ff, wireframe: true, transparent: true, opacity: 0.2 });
+    const wireframe = new THREE.Mesh(wireGeo, wireMat);
+    scene.add(wireframe);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; controls.enableZoom = false; controls.autoRotate = true; controls.autoRotateSpeed = 1.5;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        sphere.rotation.y += 0.001;
+        wireframe.rotation.x -= 0.001;
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+        if(container) {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
     });
 }
