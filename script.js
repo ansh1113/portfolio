@@ -6,50 +6,33 @@ setTimeout(() => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate Research Cards
         gsap.utils.toArray('.research-card').forEach((card, i) => {
             gsap.fromTo(card, 
                 { x: 100, opacity: 0 },
-                { 
-                    scrollTrigger: { trigger: card, start: "top 85%" },
-                    x: 0, opacity: 1, duration: 0.8, delay: i * 0.1, ease: "back.out(1.7)" 
-                }
+                { scrollTrigger: { trigger: card, start: "top 85%" }, x: 0, opacity: 1, duration: 0.8, delay: i * 0.1, ease: "back.out(1.7)" }
             );
         });
 
-        // Animate Project Cards
         gsap.utils.toArray('.project-card').forEach((card, i) => {
             gsap.fromTo(card, 
                 { y: 50, opacity: 0 },
-                { 
-                    scrollTrigger: { trigger: card, start: "top 90%" },
-                    y: 0, opacity: 1, duration: 0.6, delay: i * 0.1, ease: "power2.out" 
-                }
+                { scrollTrigger: { trigger: card, start: "top 90%" }, y: 0, opacity: 1, duration: 0.6, delay: i * 0.1, ease: "power2.out" }
             );
         });
 
-        // Animate Logs
         gsap.utils.toArray('.log-entry').forEach((log, i) => {
             gsap.fromTo(log,
                 { x: -50, opacity: 0 },
-                {
-                    scrollTrigger: { trigger: log, start: "top 90%" },
-                    x: 0, opacity: 1, duration: 0.6, ease: "power2.out"
-                }
+                { scrollTrigger: { trigger: log, start: "top 90%" }, x: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
             );
         });
         
-        // Animate Vision Container
         gsap.fromTo('.vision-container', 
             { scale: 0.9, opacity: 0 },
-            {
-                scrollTrigger: { trigger: '#vision', start: "top 75%" },
-                scale: 1, opacity: 1, duration: 1, ease: "power2.out"
-            }
+            { scrollTrigger: { trigger: '#vision', start: "top 75%" }, scale: 1, opacity: 1, duration: 1, ease: "power2.out" }
         );
     }
 }, 100);
-
 
 // --- 2. CUSTOM ROBOTIC CURSOR ---
 const cursorDot = document.querySelector('[data-cursor-dot]');
@@ -71,7 +54,54 @@ if(cursorDot && cursorOutline) {
     });
 }
 
-// --- 3. THREE.JS SCENE ---
+// --- 3. BACKGROUND SLAM TUNNEL (NEW) ---
+const bgContainer = document.getElementById('bg-canvas-container');
+if (bgContainer) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    bgContainer.appendChild(renderer.domElement);
+
+    // Create a "Point Cloud" Tunnel
+    const geometry = new THREE.BufferGeometry();
+    const count = 2000;
+    const positions = new Float32Array(count * 3);
+
+    for(let i = 0; i < count * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 40; // X (Spread wide)
+        positions[i+1] = (Math.random() - 0.5) * 40; // Y (Spread tall)
+        positions[i+2] = (Math.random() - 0.5) * 100; // Z (Deep tunnel)
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ size: 0.05, color: 0x233b6e });
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    camera.position.z = 5;
+
+    function animateBg() {
+        requestAnimationFrame(animateBg);
+        
+        // Move particles based on scroll
+        const scrollY = window.scrollY;
+        particles.position.z = scrollY * 0.005; 
+        particles.rotation.z = scrollY * 0.0002;
+
+        renderer.render(scene, camera);
+    }
+    animateBg();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+// --- 4. FOREGROUND GLOBE (EXISTING) ---
 const container = document.getElementById('canvas-container');
 
 if (container) {
@@ -94,10 +124,7 @@ if (container) {
     scene.add(wireframe);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true; 
-    controls.enableZoom = false; 
-    controls.autoRotate = true; 
-    controls.autoRotateSpeed = 1.5;
+    controls.enableDamping = true; controls.enableZoom = false; controls.autoRotate = true; controls.autoRotateSpeed = 1.5;
 
     function animate() {
         requestAnimationFrame(animate);
