@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// --- 1. GSAP ANIMATIONS ---
+// --- 1. GSAP SCROLL ANIMATIONS ---
 setTimeout(() => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +51,6 @@ if(cursorDot && cursorOutline) {
         cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 400, fill: "forwards" });
     });
 
-    // Add hover state
     const clickables = document.querySelectorAll('a, button, .research-card, .project-card');
     clickables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -59,97 +58,99 @@ if(cursorDot && cursorOutline) {
     });
 }
 
-// --- 3. THE "DIGITAL TERRAIN" BACKGROUND (NEW & IMPROVED) ---
+// --- 3. THE "DIGITAL WATERFALL" BACKGROUND (NEW) ---
 const bgContainer = document.getElementById('bg-canvas-container');
 
 if (bgContainer) {
     const scene = new THREE.Scene();
-    // Add Fog for depth (The "Endless" look)
-    scene.fog = new THREE.FogExp2(0x0a0a0f, 0.04); 
+    // Subtle fog to fade the distant grid into darkness
+    scene.fog = new THREE.FogExp2(0x0a0a0f, 0.03); 
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-    // Position camera low to the ground for that "Drone" feel
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    
+    // CAMERA START POSITION:
+    // Low Y (height) so we are "at the edge" looking out.
+    // The scroll event will lift this up.
     camera.position.set(0, 1, 5); 
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
     bgContainer.appendChild(renderer.domElement);
 
-    // --- A. The Wireframe Terrain ---
-    // Create a large plane
-    const planeGeometry = new THREE.PlaneGeometry(80, 80, 60, 60);
-    
-    // Deform the plane (Make it hilly)
-    const positionAttribute = planeGeometry.attributes.position;
-    for (let i = 0; i < positionAttribute.count; i++) {
-        const x = positionAttribute.getX(i);
-        const y = positionAttribute.getY(i);
-        // Create rolling hills using sine waves
-        const z = Math.sin(x * 0.3) * 1.5 + Math.sin(y * 0.2) * 1.5; 
-        positionAttribute.setZ(i, z);
-    }
-    // Re-compute normals for lighting (optional, but good practice)
-    planeGeometry.computeVertexNormals();
-
+    // --- Create the "Liquid Wireframe" ---
+    // 60x60 segments gives us enough vertices for smooth waves without lag
+    const planeGeometry = new THREE.PlaneGeometry(100, 100, 50, 50); 
     const planeMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0x00ffcc, // Cyan Neon
+        color: 0x00ffcc, // The Green/Cyan you liked
         wireframe: true,
         transparent: true,
-        opacity: 0.15
+        opacity: 0.15 
     });
 
     const terrain = new THREE.Mesh(planeGeometry, planeMaterial);
-    terrain.rotation.x = -Math.PI / 2; // Lay flat
+    
+    // Rotate to be flat floor
+    terrain.rotation.x = -Math.PI / 2; 
+    
+    // POSITIONING:
+    // We push it down (Y = -3) so it sits UNDER the globe on the main screen.
+    terrain.position.y = -3; 
+    terrain.position.z = -10; // Push it back slightly
+    
     scene.add(terrain);
 
-    // --- B. Floating "Data Particles" ---
-    const particlesGeo = new THREE.BufferGeometry();
-    const particleCount = 400;
-    const pPos = new Float32Array(particleCount * 3);
-    for(let i=0; i<particleCount * 3; i+=3) {
-        pPos[i] = (Math.random() - 0.5) * 60; // Wide X
-        pPos[i+1] = Math.random() * 10;       // Height Y
-        pPos[i+2] = (Math.random() - 0.5) * 60; // Depth Z
-    }
-    particlesGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-    const particlesMat = new THREE.PointsMaterial({ color: 0x7000ff, size: 0.1 });
-    const particles = new THREE.Points(particlesGeo, particlesMat);
-    scene.add(particles);
-
-    // --- C. Animation Loop ---
-    let mouseY = 0;
+    // Interactive Mouse Variables
     let mouseX = 0;
-
-    // Track mouse for camera tilt
+    let mouseY = 0;
     document.addEventListener('mousemove', (event) => {
         mouseX = (event.clientX / window.innerWidth) - 0.5;
         mouseY = (event.clientY / window.innerHeight) - 0.5;
     });
 
+    // --- ANIMATION LOOP ---
+    const clock = new THREE.Clock();
+
     function animateBg() {
         requestAnimationFrame(animateBg);
+        const time = clock.getElapsedTime();
 
-        const time = Date.now() * 0.0005;
-
-        // 1. Move Terrain (Flyover Effect)
-        // We move the terrain backwards, and when it goes too far, we reset it
-        // This creates an infinite loop illusion
-        terrain.position.z = (time * 4) % 2; 
-
-        // 2. Interactive Camera Tilt (Drone Pilot feel)
-        // Smoothly interpolate camera rotation based on mouse
-        camera.rotation.x += ((-mouseY * 0.5) - camera.rotation.x) * 0.05;
-        camera.rotation.y += ((-mouseX * 0.5) - camera.rotation.y) * 0.05;
+        // 1. THE WAVE EFFECT (VERTEX MANIPULATION)
+        // This creates the "Continuous" flow. We are not moving the object, 
+        // we are moving the math that shapes the object. Infinite flow.
+        const positionAttribute = planeGeometry.attributes.position;
         
-        // 3. Scroll Speed Boost
-        // Move camera slightly up/down based on scroll to see more of the map
-        camera.position.y = 1 + (window.scrollY * 0.001);
+        for (let i = 0; i < positionAttribute.count; i++) {
+            const x = positionAttribute.getX(i);
+            const y = positionAttribute.getY(i); // Local Y is World Z (Depth)
+            
+            // Complex Wave Formula:
+            // Sin(X) creates rolling hills left-to-right
+            // Sin(Y + Time) creates the "Forward Flow" towards the camera
+            const zHeight = Math.sin(x * 0.2 + time * 0.5) * 1.5 + Math.sin(y * 0.2 + time * 0.8) * 1.5;
+            
+            positionAttribute.setZ(i, zHeight);
+        }
+        positionAttribute.needsUpdate = true;
+
+        // 2. THE WATERFALL SCROLL EFFECT
+        // As you scroll down, we lift the camera up and tilt it down.
+        // This creates the "Backing away from the edge" feeling.
+        const scrollPercent = window.scrollY * 0.002;
+        
+        // Lift Camera Up
+        camera.position.y = 1 + scrollPercent * 3; 
+        
+        // Tilt Camera Down to look at the expanding terrain
+        camera.rotation.x = -scrollPercent * 0.2; 
+        
+        // 3. Mouse Parallax (Drone Pilot Feel)
+        terrain.rotation.z = mouseX * 0.05; // Gentle tilt left/right
 
         renderer.render(scene, camera);
     }
     animateBg();
 
-    // Handle Resize
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
