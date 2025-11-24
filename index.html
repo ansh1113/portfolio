@@ -27,10 +27,10 @@
   <nav>
     <div class="logo">&lt;Ansh_Bhansali /&gt;</div>
     <div class="nav-links">
-      <a href="#active-research" class="nav-item">01. ACTIVE_RESEARCH</a>
-      <a href="#skills" class="nav-item">02. SPECS</a>
-      <a href="#experience" class="nav-item">03. LOGS</a>
-      <a href="#projects" class="nav-item">04. MODULES</a>
+      <a href="#active-research">01. ACTIVE_RESEARCH</a>
+      <a href="#skills">02. SPECS</a>
+      <a href="#experience">03. LOGS</a>
+      <a href="#projects">04. MODULES</a>
     </div>
   </nav>
 
@@ -64,34 +64,24 @@
           <div class="line"></div>
       </div>
       <div class="research-grid">
-          
           <div class="research-card">
               <div class="card-icon"><i class="fas fa-car-side"></i></div>
               <h3>Safe Autonomy (GEM Vehicle)</h3>
               <p class="tech-stack">Stanley Controller | Pedestrian Prediction | ROS2 | YOLO</p>
-              <p class="research-desc">
-                  Developing pedestrian-behavior-based control policies for the GEM autonomous vehicle. Focusing on predictive braking and path planning in high-uncertainty environments using behavioral models.
-              </p>
+              <p class="research-desc">Developing pedestrian-behavior-based control policies for the GEM autonomous vehicle. Focusing on predictive braking and path planning in high-uncertainty environments using behavioral models.</p>
           </div>
-
           <div class="research-card">
               <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
               <h3>Dynamic Human-Robot Handover</h3>
               <p class="tech-stack">HRI | Motion Tracking | Real-time Control</p>
-              <p class="research-desc">
-                  Building a closed-loop system where a robot tracks a human hand to dynamically hand over objects. Instead of the human reaching out, the robot adapts to the human's position for a seamless, stable transfer.
-              </p>
+              <p class="research-desc">Building a closed-loop system where a robot tracks a human hand to dynamically hand over objects. Instead of the human reaching out, the robot adapts to the human's position for a seamless, stable transfer.</p>
           </div>
-
           <div class="research-card">
               <div class="card-icon"><i class="fas fa-cubes"></i></div>
               <h3>6D Pose Estimation</h3>
               <p class="tech-stack">PyTorch | Model-Free Algos | RGB-D</p>
-              <p class="research-desc">
-                  Implementing and comparing model-based vs. model-free algorithms for estimating the 6D pose (position + orientation) of texture-less industrial objects in cluttered scenes.
-              </p>
+              <p class="research-desc">Implementing and comparing model-based vs. model-free algorithms for estimating the 6D pose (position + orientation) of texture-less industrial objects in cluttered scenes.</p>
           </div>
-
       </div>
   </section>
 
@@ -101,7 +91,6 @@
           <h2>SYSTEM_SPECIFICATIONS</h2>
           <div class="line"></div>
       </div>
-      
       <div class="skills-container">
           <div class="skill-category">
               <h3><i class="fas fa-robot"></i> AUTONOMY_STACK</h3>
@@ -113,7 +102,6 @@
                   <span>Control Barrier Functions (CBF)</span>
               </div>
           </div>
-
           <div class="skill-category">
               <h3><i class="fas fa-brain"></i> AI_&_PERCEPTION</h3>
               <div class="tag-list">
@@ -124,7 +112,6 @@
                   <span>Point Cloud Processing</span>
               </div>
           </div>
-
           <div class="skill-category">
               <h3><i class="fas fa-microchip"></i> EMBEDDED_&_HW</h3>
               <div class="tag-list">
@@ -144,11 +131,9 @@
           <h2>MISSION_LOGS</h2>
           <div class="line"></div>
       </div>
-
       <div class="timeline-grid">
           <div class="timeline-col">
               <h3 class="col-title"><i class="fas fa-briefcase"></i> RUNTIME_HISTORY (WORK)</h3>
-              
               <div class="log-entry">
                   <div class="log-date">May 2024 - May 2025</div>
                   <h4>Electronics Engineering Intern</h4>
@@ -159,7 +144,6 @@
                       <li>Deployed an IoT solution using ESP32S3 and RFID for remote monitoring and secure automated payments.</li>
                   </ul>
               </div>
-
               <div class="log-entry">
                   <div class="log-date">Jan 2024 - Jun 2024</div>
                   <h4>Robotics Research Intern</h4>
@@ -171,10 +155,8 @@
                   </ul>
               </div>
           </div>
-
           <div class="timeline-col">
               <h3 class="col-title"><i class="fas fa-graduation-cap"></i> KERNEL_VERSIONS (EDUCATION)</h3>
-              
               <div class="log-entry">
                   <div class="log-date">Aug 2025 - Present</div>
                   <h4>Master's in Autonomy and Robotics</h4>
@@ -184,7 +166,6 @@
                       <li><strong>Key Lab Work:</strong> Working with humanoids, drones and GEM autonomous platforms.</li>
                   </ul>
               </div>
-
               <div class="log-entry">
                   <div class="log-date">Dec 2021 - Jun 2025</div>
                   <h4>B.Tech. in Electronics & Telecom</h4>
@@ -204,8 +185,44 @@
       <h2>ARCHIVED_MODULES (PAST PROJECTS)</h2>
       <div class="line"></div>
     </div>
-    <div class="projects-grid" id="projectsGrid">
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Quadruped Locomotion (RL)</h3>
+            <div class="tags"><span class="tag">PPO</span><span class="tag">Isaac Gym</span><span class="tag">Python</span></div>
+            <p class="project-desc">Trained ANYmal quadruped policies using Proximal Policy Optimization. Achieved robust traversal on irregular terrain with 0-fall safety constraints.</p>
+            <div class="project-links"><a href="https://github.com/ansh1113/Quadruped-Locomotion-via-PPO" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
         </div>
+        <div class="project-card">
+            <h3>VIO + Footstep Planning</h3>
+            <div class="tags"><span class="tag">ROS2</span><span class="tag">VINS-Fusion</span><span class="tag">Nav2</span></div>
+            <p class="project-desc">Fused Visual-Inertial Odometry with footstep planning. Enabled autonomous navigation in GPS-denied environments with <10cm drift.</p>
+            <div class="project-links"><a href="https://github.com/ansh1113/VIO-Footstep-Planner-Fusion" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
+        </div>
+        <div class="project-card">
+            <h3>Humanoid Motion Planning</h3>
+            <div class="tags"><span class="tag">Drake</span><span class="tag">MoveIt</span><span class="tag">C++</span></div>
+            <p class="project-desc">Implemented whole-body motion planning for HRP-4. Enforced ZMP constraints for stable manipulation and reaching tasks.</p>
+            <div class="project-links"><a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
+        </div>
+        <div class="project-card">
+            <h3>Terrain-Aware Navigation</h3>
+            <div class="tags"><span class="tag">Elevation Mapping</span><span class="tag">ROS2</span></div>
+            <p class="project-desc">Developed a perception pipeline converting depth clouds to elevation maps for quadruped footstep placement.</p>
+            <div class="project-links"><a href="https://github.com/ansh1113/Terrain-Aware-Locomotion-Pipeline-" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
+        </div>
+        <div class="project-card">
+            <h3>EMG Prosthetic Arm</h3>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">TinyML</span><span class="tag">Fusion 360</span></div>
+            <p class="project-desc">Built a 5-DOF prosthetic arm controlled by EMG signals. Used XGBoost on ESP32 for real-time gesture classification.</p>
+            <div class="project-links"><a href="https://www.youtube.com/shorts/bR4iVEo-3-U" target="_blank"><i class="fab fa-youtube"></i> WATCH_DEMO</a></div>
+        </div>
+        <div class="project-card">
+            <h3>RL Locomotion + Safety</h3>
+            <div class="tags"><span class="tag">Control Barrier Functions</span></div>
+            <p class="project-desc">Integrated CBF as a safety filter for RL policies to guarantee stability during training.</p>
+            <div class="project-links"><a href="https://github.com/ansh1113/RL-Locomotion-with-Safety-Layer" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
+        </div>
+    </div>
   </section>
 
   <section id="vision">
@@ -221,7 +238,16 @@
                 <span class="title">manifesto.md</span>
             </div>
             <div class="terminal-body" id="typewriter-text">
-                </div>
+                <p><span class="prompt">></span> <span class="comment"># THE OBJECTIVE</span></p>
+                <p>The robotics industry is building calculators. I want to build the smartphone.</p>
+                <br>
+                <p><span class="prompt">></span> <span class="comment"># THE CONCEPT</span></p>
+                <p class="highlight-text">"One Robot. Many Lives."</p>
+                <p>My vision is a <strong>Universal Chassis</strong> augmented by a <strong>Skill Ecosystem</strong>. Instead of single-purpose hardware, we need a core intelligence that can download "Physical Apps" - mastered skills for logistics, caregiving, or disaster response.</p>
+                <br>
+                <p><span class="prompt">></span> <span class="comment"># THE IMPLEMENTATION</span></p>
+                <p>The key is not just mechanics, but the <strong>Core Intelligence</strong> - an OS that translates human intent into flawless execution using verified skill blocks. This system must be built on a foundation of "Simulation-First" safety protocols.</p>
+            </div>
         </div>
     </div>
   </section>
