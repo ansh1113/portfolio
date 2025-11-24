@@ -25,14 +25,8 @@ body {
 
 /* --- NEW BACKGROUND CANVAS --- */
 #bg-canvas-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2; /* Behind everything */
-    opacity: 1; /* Subtle effect */
-    pointer-events: none; /* Let clicks pass through */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2; opacity: 1; pointer-events: none;
 }
 
 /* --- CUSTOM ROBOTIC CURSOR --- */
@@ -47,7 +41,7 @@ body {
 }
 body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgba(0, 255, 204, 0.1); border-color: var(--secondary); }
 
-/* --- BACKGROUND --- */
+/* --- BACKGROUND GRID --- */
 .grid-overlay {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   background-image: 
@@ -66,7 +60,7 @@ body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgb
 nav {
   display: flex; justify-content: space-between; padding: 1.5rem 4rem;
   align-items: center; font-family: var(--font-display); position: fixed; width: 100%; top: 0;
-  background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px); z-index: 100;
+  background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(10px); z-index: 100;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .logo { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
@@ -78,7 +72,6 @@ nav {
 header { min-height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; padding-top: 80px; }
 .header-content { display: flex; justify-content: space-between; width: 100%; align-items: center; }
 
-/* FIX FOR GLOBE CLICKING */
 .text-zone { max-width: 600px; z-index: 10; position: relative; pointer-events: none; }
 .text-zone h1, .text-zone .console-box, .text-zone .status-indicator, .cta-group { pointer-events: auto; }
 
@@ -117,7 +110,7 @@ h1 { font-family: var(--font-display); font-size: 3.5rem; line-height: 1.1; marg
 #canvas-container { 
     width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; 
     position: absolute; right: -5%; top: 50%; transform: translateY(-50%); 
-    z-index: 1; pointer-events: auto; /* ALLOWS GLOBE ROTATION */
+    z-index: 1; pointer-events: auto; 
 }
 
 /* --- SECTIONS --- */
@@ -127,17 +120,41 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 .section-header h2 { font-size: 1.5rem; letter-spacing: 1px; }
 .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); margin-left: 2rem; transform-origin: left; }
 
-/* --- ACTIVE RESEARCH --- */
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.research-card {
-    background: rgba(19, 19, 31, 0.4); border: 1px solid rgba(255,255,255,0.1); padding: 2rem;
-    transition: 0.3s; position: relative; overflow: hidden;
+/* --- CARDS (RESEARCH & PROJECTS) --- */
+.research-grid, .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+/* SHARED CARD STYLE - GLASS EFFECT */
+.research-card, .project-card {
+    background: rgba(19, 19, 31, 0.25); /* <<< THIS IS THE GLASS OPACITY */
+    border: 1px solid rgba(255,255,255,0.1); 
+    padding: 2rem;
+    backdrop-filter: blur(8px); /* Glass Blur */
+    -webkit-backdrop-filter: blur(8px);
+    transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column;
 }
-.research-card:hover { border-color: var(--accent); background: rgba(19, 19, 31, 0.8); }
+
+.research-card:hover, .project-card:hover { 
+    border-color: var(--accent); 
+    background: rgba(19, 19, 31, 0.4); /* Slightly darker on hover */
+    transform: translateY(-5px);
+}
+
+/* Card Details */
 .card-icon { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; }
-.research-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; }
-.tech-stack { font-family: var(--font-display); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; }
-.research-desc { font-size: 0.9rem; color: var(--text-dim); }
+.research-card h3, .project-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; }
+.tech-stack, .tags { font-family: var(--font-display); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { background: rgba(112, 0, 255, 0.1); color: var(--accent); padding: 4px 10px; border: 1px solid rgba(112, 0, 255, 0.2); }
+.research-desc, .project-desc { font-size: 0.9rem; color: var(--text-dim); flex-grow: 1; }
+
+/* Project Card Corners */
+.project-card::before, .project-card::after { content: ''; position: absolute; width: 20px; height: 20px; opacity: 0.5; transition: 0.3s; pointer-events: none; }
+.project-card::before { top: 0; left: 0; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+.project-card::after { bottom: 0; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+.project-card:hover::before, .project-card:hover::after { opacity: 1; width: 100%; height: 100%; border-color: rgba(0, 255, 204, 0.1); }
+
+.project-links { margin-top: 1.5rem; }
+.project-links a { font-family: var(--font-display); font-size: 0.8rem; color: var(--text-main); cursor: none; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: 0.3s; }
+.project-links a:hover { color: var(--accent); background: rgba(0, 255, 204, 0.1); }
 
 /* --- SKILLS --- */
 .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
@@ -161,49 +178,23 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 .log-list { padding-left: 1rem; color: var(--text-dim); font-size: 0.9rem; list-style: square; }
 .log-list li { margin-bottom: 8px; }
 
-/* --- PROJECTS --- */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.project-card {
-  background: rgba(19, 19, 31, 0.6); border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 2rem; position: relative; transition: 0.3s; display: flex; flex-direction: column;
-}
-.project-card::before, .project-card::after {
-  content: ''; position: absolute; width: 20px; height: 20px; opacity: 0.5; transition: 0.3s; pointer-events: none;
-}
-.project-card::before { top: 0; left: 0; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
-.project-card::after { bottom: 0; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
-.project-card:hover { transform: translateY(-5px); background: rgba(19, 19, 31, 0.9); }
-.project-card::before, .project-card:hover::after { opacity: 1; width: 100%; height: 100%; border-color: rgba(0, 255, 204, 0.1); }
-.project-card h3 { font-family: var(--font-display); color: #fff; margin-bottom: 1rem; font-size: 1.2rem; }
-.tags { margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 8px; }
-.tag { background: rgba(112, 0, 255, 0.1); color: var(--accent); padding: 4px 10px; font-family: var(--font-display); font-size: 0.7rem; border: 1px solid rgba(112, 0, 255, 0.2); }
-.project-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; flex-grow: 1; }
-.project-links a { 
-    font-family: var(--font-display); font-size: 0.8rem; color: var(--text-main); cursor: none;
-    text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; 
-    transition: 0.3s;
-}
-.project-links a:hover { color: var(--accent); background: rgba(0, 255, 204, 0.1); }
-
-/* --- VISION --- */
+/* --- VISION TERMINAL (UPDATED FOR GLASS EFFECT) --- */
 .vision-container { display: flex; justify-content: center; }
 
 .terminal-window { 
-    /* 1. The Main Body: 40% Opacity Dark Blue */
-    background: rgba(19, 19, 31, 0.4); 
+    /* Set background to 25% opacity to match cards */
+    background: rgba(19, 19, 31, 0.25); 
     border: 1px solid rgba(255,255,255,0.1); 
     border-radius: 8px; 
     width: 100%; 
     max-width: 800px; 
-    
-    /* 2. The Blur: This makes the text behind it fuzzy (Real Glass Effect) */
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    backdrop-filter: blur(8px); /* Matches the cards */
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .terminal-header { 
-    /* 3. The Header Bar: Slightly darker glass (60% Opacity) */
-    background: rgba(26, 26, 37, 0.6); 
+    /* Header is slightly darker but still transparent */
+    background: rgba(26, 26, 37, 0.5); 
     padding: 0.8rem 1rem; 
     display: flex; 
     align-items: center; 
@@ -214,26 +205,9 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 .buttons { display: flex; gap: 6px; margin-right: 1rem; }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ff5f56; } 
-.yellow { background: #ffbd2e; } 
-.green { background: #27c93f; }
-
-.terminal-body { 
-    padding: 2rem; 
-    font-family: var(--font-display); 
-    font-size: 1rem; 
-    color: var(--text-main); 
-    min-height: 200px; 
-}
-
-.highlight-text { 
-    color: var(--accent); 
-    font-weight: 700; 
-    margin: 1rem 0; 
-    border-left: 3px solid var(--accent); 
-    padding-left: 1rem; 
-    display: block;
-}
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+.terminal-body { padding: 2rem; font-family: var(--font-display); font-size: 1rem; color: var(--text-main); min-height: 200px; }
+.highlight-text { color: var(--accent); font-weight: 700; margin: 1rem 0; border-left: 3px solid var(--accent); padding-left: 1rem; display: block;}
 
 footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family: var(--font-display); font-size: 0.7rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
@@ -250,7 +224,3 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
-
-
-
-
