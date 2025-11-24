@@ -3,19 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ansh Bhansali | Robotics Engineer</title>
+  <title>Ansh Bhansali | Autonomy Engineer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
   <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
   </script>
 </head>
 <body>
@@ -26,14 +20,14 @@
   <nav>
     <div class="logo">&lt;Ansh_Bhansali /&gt;</div>
     <div class="nav-links">
-      <a href="#about"><span class="nav-num">01.</span> SYS_INFO</a>
-      <a href="#vision"><span class="nav-num">02.</span> VISION</a>
-      <a href="#projects"><span class="nav-num">03.</span> MODULES</a>
-      <a href="#contact"><span class="nav-num">04.</span> COMM_LINK</a>
+      <a href="#vision">01. VISION</a>
+      <a href="#skills">02. SPECS</a>
+      <a href="#experience">03. LOGS</a>
+      <a href="#projects">04. MODULES</a>
     </div>
   </nav>
 
-  <header id="about">
+  <header>
     <div class="header-content">
       <div class="text-zone" data-aos="fade-right">
         <div class="status-indicator">
@@ -42,82 +36,155 @@
         <h1>AUTONOMY <br><span class="highlight">ARCHITECT</span></h1>
         
         <div class="console-box">
-            <p class="console-text"><span class="prompt">></span> Initializing ROS2 nodes...</p>
-            <p class="console-text"><span class="prompt">></span> Loading SLAM algorithms... <span class="success">[OK]</span></p>
-            <p class="console-text"><span class="prompt">></span> Calibrating perception pipeline...</p>
+            <p class="console-text"><span class="prompt">></span> EXEC: M.Eng_Robotics_UIUC</p>
+            <p class="console-text"><span class="prompt">></span> LOAD: ROS2, SLAM, Perception</p>
+            <p class="console-text"><span class="prompt">></span> STATUS: Building Intelligent Machines</p>
         </div>
 
-        <p class="tagline">Building the brain and body of the next generation of intelligent machines.</p>
-        
         <div class="cta-group">
-          <a href="#projects" class="btn primary">VIEW_PROJECTS</a>
-          <a href="Resume_Ansh_Bhansali.pdf" target="_blank" class="btn secondary"><i class="fas fa-download"></i> DOWNLOAD_LOGS (RESUME)</a>
+          <a href="#projects" class="btn primary">INITIATE_PROJECTS</a>
+          <a href="Resume.pdf" target="_blank" class="btn secondary"><i class="fas fa-file-download"></i> DOWNLOAD_RESUME</a>
         </div>
       </div>
-      
       <div id="canvas-container"></div>
     </div>
   </header>
 
+  <section id="skills">
+      <div class="section-header">
+          <span class="section-num">02</span>
+          <h2>SYSTEM_SPECIFICATIONS</h2>
+          <div class="line"></div>
+      </div>
+      
+      <div class="skills-container">
+          <div class="skill-category" data-aos="fade-up">
+              <h3><i class="fas fa-microchip"></i> CORE_STACK</h3>
+              <div class="skill-bar">
+                  <div class="info"><span>ROS 2 / Nav2</span><span>95%</span></div>
+                  <div class="bar"><div class="fill" style="width:95%"></div></div>
+              </div>
+              <div class="skill-bar">
+                  <div class="info"><span>C++ / Python</span><span>90%</span></div>
+                  <div class="bar"><div class="fill" style="width:90%"></div></div>
+              </div>
+              <div class="skill-bar">
+                  <div class="info"><span>SLAM / Perception</span><span>85%</span></div>
+                  <div class="bar"><div class="fill" style="width:85%"></div></div>
+              </div>
+          </div>
+
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+              <h3><i class="fas fa-globe"></i> SIMULATION_ENV</h3>
+              <div class="tag-cloud">
+                  <span>Gazebo</span><span>Isaac Sim</span><span>MuJoCo</span><span>PyBullet</span><span>AirSim</span>
+              </div>
+              <h3 style="margin-top: 1.5rem;"><i class="fas fa-layer-group"></i> AI_MODULES</h3>
+              <div class="tag-cloud">
+                  <span>PyTorch</span><span>TensorFlow</span><span>YOLO</span><span>OpenCV</span><span>Reinforcement Learning (PPO)</span>
+              </div>
+          </div>
+
+          <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+              <h3><i class="fas fa-plug"></i> HARDWARE_INTERFACE</h3>
+              <ul class="hardware-list">
+                  <li>> STM32 / ESP32 Firmware</li>
+                  <li>> PCB Design (KiCad/Altium)</li>
+                  <li>> Sensor Fusion (IMU/LiDAR/GPS)</li>
+                  <li>> Fusion 360 / SolidWorks</li>
+              </ul>
+          </div>
+      </div>
+  </section>
+
   <section id="vision">
     <div class="section-header">
-      <span class="section-num">02</span>
+      <span class="section-num">01</span>
       <h2>VISION_PROTOCOL</h2>
       <div class="line"></div>
     </div>
-    
     <div class="vision-container" data-aos="fade-up">
-        <div class="terminal-window">
+        <div class="terminal-window large">
             <div class="terminal-header">
-                <div class="buttons">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <span class="title">mission_statement.txt</span>
+                <div class="buttons"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <span class="title">manifesto.md</span>
             </div>
-            <div class="terminal-body">
-                <p><span class="prompt">></span> <span class="comment"># The robotics industry is at a turning point.</span></p>
-                <p><span class="prompt">></span> echo $CURRENT_OBJECTIVE</p>
-                <p class="output">"Build the robotic smartphone: A Universal Chassis + Modular Skill Ecosystem."</p>
+            <div class="terminal-body scrollable">
+                <p><span class="prompt">></span> <span class="comment"># THE OBJECTIVE</span></p>
+                <p>The robotics industry is building calculators. I want to build the smartphone.</p>
                 <br>
-                <p><span class="prompt">></span> <span class="comment"># Guiding Principle:</span></p>
+                <p><span class="prompt">></span> <span class="comment"># THE CONCEPT</span></p>
                 <p class="highlight-text">"One Robot. Many Lives."</p>
+                <p>My vision is a <strong>Universal Chassis</strong> augmented by a <strong>Skill Ecosystem</strong>. Instead of single-purpose hardware, we need a core intelligence that can download "Physical Apps"—mastered skills for logistics, caregiving, or disaster response.</p>
                 <br>
-                <p><span class="prompt">></span> <span class="comment"># We are moving beyond single-purpose tools.</span></p>
-                <p><span class="prompt">></span> <span class="comment"># I am engineering the Core Intelligence that allows robots to master any skill.</span></p>
+                <p><span class="prompt">></span> <span class="comment"># THE IMPLEMENTATION</span></p>
+                <p>The key is not just mechanics, but the <strong>Core Intelligence</strong>—an OS that translates human intent into flawless execution using verified skill blocks. This system must be built on a foundation of "Simulation-First" safety protocols.</p>
+                <br>
                 <p><span class="prompt">></span> <span class="cursor">_</span></p>
             </div>
         </div>
     </div>
   </section>
 
+  <section id="experience">
+      <div class="section-header">
+          <span class="section-num">03</span>
+          <h2>MISSION_LOGS</h2>
+          <div class="line"></div>
+      </div>
+
+      <div class="timeline-grid">
+          <div class="timeline-col">
+              <h3 class="col-title"><i class="fas fa-graduation-cap"></i> KERNEL_VERSIONS (EDUCATION)</h3>
+              
+              <div class="log-entry" data-aos="fade-up">
+                  <div class="log-date">2025 - 2026</div>
+                  <h4>M.Eng. Robotics & Autonomy</h4>
+                  <div class="log-loc">Univ. of Illinois Urbana-Champaign</div>
+                  <p class="log-desc">Focus: Humanoids, Computer Vision, Safe Autonomy.</p>
+              </div>
+
+              <div class="log-entry" data-aos="fade-up">
+                  <div class="log-date">2021 - 2025</div>
+                  <h4>B.Tech. Electronics & Telecom</h4>
+                  <div class="log-loc">Sardar Patel Institute of Tech, Mumbai</div>
+              </div>
+          </div>
+
+          <div class="timeline-col">
+              <h3 class="col-title"><i class="fas fa-briefcase"></i> RUNTIME_HISTORY (WORK)</h3>
+              
+              <div class="log-entry" data-aos="fade-up">
+                  <div class="log-date">May 2024 - May 2025</div>
+                  <h4>Electronics Engineering Intern</h4>
+                  <div class="log-loc">Dimension Six Technologies</div>
+                  <ul class="log-list">
+                      <li>Designed STM32 firmware with novel power algos (+40% range).</li>
+                      <li>Routed 4-layer PCBs for custom ESCs reducing power loss.</li>
+                  </ul>
+              </div>
+
+              <div class="log-entry" data-aos="fade-up">
+                  <div class="log-date">Jan 2024 - Jun 2024</div>
+                  <h4>Robotics Research Intern</h4>
+                  <div class="log-loc">IIT Bombay</div>
+                  <ul class="log-list">
+                      <li>Developed SLAM-based autonomous robot (ROS2).</li>
+                      <li>Achieved 95% navigation accuracy via sensor fusion.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
   <section id="projects">
     <div class="section-header">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2>RK_MODULES (PROJECTS)</h2>
       <div class="line"></div>
     </div>
     <div class="projects-grid" id="projectsGrid">
         </div>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2>ESTABLISH_UPLINK</h2>
-        <div class="line"></div>
-      </div>
-      
-      <div class="contact-wrapper">
-          <p>Ready to collaborate on the future of autonomy?</p>
-          <a href="mailto:anshbhansali5@gmail.com" class="btn primary big-btn">INITIALIZE_COMMUNICATION</a>
-          
-          <div class="social-links">
-              <a href="https://github.com/ansh1113" target="_blank"><i class="fab fa-github"></i> GITHUB</a>
-              <a href="http://www.linkedin.com/in/a-b-b3303a226/" target="_blank"><i class="fab fa-linkedin"></i> LINKEDIN</a>
-          </div>
-      </div>
   </section>
 
   <footer>
