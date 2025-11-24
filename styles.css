@@ -179,17 +179,15 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 /* --- VISION TERMINAL (UPDATED) --- */
 .vision-container { display: flex; justify-content: center; }
 
-.terminal-window {
-    background: rgba(19, 19, 31, 0.25);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    width: 100%;
-    max-width: 800px;
-    backdrop-filter: blur(8px);
+.terminal-window { 
+    /* UPDATED: 25% Opacity (Glass) to match Research Cards */
+    background: rgba(19, 19, 31, 0.25); 
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-radius: 8px; 
+    width: 100%; 
+    max-width: 800px; 
+    backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px);
-    background-clip: padding-box;
-    position: relative;
-    z-index: 5; /* keeps it on top so blur can work */
 }
 
 .terminal-header { 
@@ -224,4 +222,3 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
-
