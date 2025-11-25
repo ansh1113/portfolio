@@ -207,14 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply to terminal window
         const terminal = document.querySelector('.terminal-window');
         if (terminal) {
-            terminal.style.setProperty('background', 'rgba(19, 19, 31, 0.15)', 'important');
-            terminal.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
-            terminal.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+            terminal.style.setProperty('background', 'rgba(19, 19, 31, 0.08)', 'important');
+            terminal.style.setProperty('backdrop-filter', 'blur(16px)', 'important');
+            terminal.style.setProperty('-webkit-backdrop-filter', 'blur(16px)', 'important');
         }
 
         const terminalHeader = document.querySelector('.terminal-header');
         if (terminalHeader) {
-            terminalHeader.style.setProperty('background', 'rgba(26, 26, 37, 0.3)', 'important');
+            terminalHeader.style.setProperty('background', 'rgba(26, 26, 37, 0.15)', 'important');
         }
 
         const terminalBody = document.querySelector('.terminal-body');
@@ -225,9 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply to all cards
         const cards = document.querySelectorAll('.research-card, .project-card');
         cards.forEach(card => {
-            card.style.setProperty('background', 'rgba(19, 19, 31, 0.15)', 'important');
-            card.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
-            card.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+            card.style.setProperty('background', 'rgba(19, 19, 31, 0.08)', 'important');
+            card.style.setProperty('backdrop-filter', 'blur(16px)', 'important');
+            card.style.setProperty('-webkit-backdrop-filter', 'blur(16px)', 'important');
         });
     };
 
