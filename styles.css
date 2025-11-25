@@ -127,7 +127,7 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 .research-card, .project-card {
     background: var(--glass-bg) !important;
-    border: 1px solid rgba(255,255,255,0.08); 
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 2rem;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -255,4 +255,3 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
-
