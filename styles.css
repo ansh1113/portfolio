@@ -9,8 +9,8 @@
   --grid-line: rgba(255, 255, 255, 0.03);
   --font-display: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
-  --glass-bg: rgba(19, 19, 31, 0.15);
-  --glass-hover: rgba(19, 19, 31, 0.35);
+  --glass-bg: rgba(19, 19, 31, 0.08);
+  --glass-hover: rgba(19, 19, 31, 0.25);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
@@ -127,10 +127,10 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 .research-card, .project-card {
     background: var(--glass-bg) !important;
-    border: 1px solid rgba(255,255,255,0.1); 
+    border: 1px solid rgba(255,255,255,0.08); 
     padding: 2rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -142,7 +142,7 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     border-color: var(--accent); 
     background: var(--glass-hover) !important;
     transform: translateY(-5px);
-    box-shadow: 0 8px 32px rgba(0, 255, 204, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 255, 204, 0.15);
 }
 
 /* Card Details */
@@ -189,21 +189,21 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 .terminal-window { 
     background: var(--glass-bg) !important;
-    border: 1px solid rgba(255,255,255,0.1); 
+    border: 1px solid rgba(255,255,255,0.08); 
     border-radius: 8px; 
     width: 100%; 
     max-width: 800px; 
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     overflow: hidden;
 }
 
 .terminal-header { 
-    background: rgba(26, 26, 37, 0.3) !important;
+    background: rgba(26, 26, 37, 0.15) !important;
     padding: 0.8rem 1rem; 
     display: flex; 
     align-items: center; 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
 .terminal-header .title {
@@ -255,3 +255,4 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
+
