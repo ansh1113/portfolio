@@ -9,6 +9,8 @@
   --grid-line: rgba(255, 255, 255, 0.03);
   --font-display: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
+  --glass-bg: rgba(19, 19, 31, 0.15);
+  --glass-hover: rgba(19, 19, 31, 0.35);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
@@ -120,23 +122,27 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 .section-header h2 { font-size: 1.5rem; letter-spacing: 1px; }
 .line { flex-grow: 1; height: 1px; background: rgba(255,255,255,0.1); margin-left: 2rem; transform-origin: left; }
 
-/* --- CARDS (RESEARCH & PROJECTS) --- */
+/* --- CARDS (RESEARCH & PROJECTS) --- UNIFIED GLASS EFFECT */
 .research-grid, .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-/* SHARED CARD STYLE - GLASS EFFECT */
 .research-card, .project-card {
-    background: rgba(19, 19, 31, 0.1); /* <<< THIS IS THE GLASS OPACITY */
+    background: var(--glass-bg) !important;
     border: 1px solid rgba(255,255,255,0.1); 
     padding: 2rem;
-    backdrop-filter: blur(8px); /* Glass Blur */
-    -webkit-backdrop-filter: blur(8px);
-    transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .research-card:hover, .project-card:hover { 
     border-color: var(--accent); 
-    background: rgba(19, 19, 31, 0.4); /* Slightly darker on hover */
+    background: var(--glass-hover) !important;
     transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0, 255, 204, 0.1);
 }
 
 /* Card Details */
@@ -178,30 +184,39 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 .log-list { padding-left: 1rem; color: var(--text-dim); font-size: 0.9rem; list-style: square; }
 .log-list li { margin-bottom: 8px; }
 
-/* --- VISION TERMINAL (UPDATED FOR GLASS EFFECT) --- */
+/* --- VISION TERMINAL - GLASS EFFECT MATCHING CARDS --- */
 .vision-container { display: flex; justify-content: center; }
 
 .terminal-window { 
-    /* Glass effect matching the cards */
-    background: rgba(19, 19, 31, 0.25) !important; /* Added !important to prevent override */
+    background: var(--glass-bg) !important;
     border: 1px solid rgba(255,255,255,0.1); 
     border-radius: 8px; 
     width: 100%; 
     max-width: 800px; 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    overflow: hidden;
 }
 
 .terminal-header { 
-    /* Header is slightly darker but still transparent */
-    background: rgba(26, 26, 37, 0.5) !important; /* Added !important */
+    background: rgba(26, 26, 37, 0.3) !important;
     padding: 0.8rem 1rem; 
     display: flex; 
     align-items: center; 
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
 }
+
+.terminal-header .title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.buttons { display: flex; gap: 6px; margin-right: 1rem; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
 
 .terminal-body { 
     padding: 2rem; 
@@ -209,13 +224,21 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     font-size: 1rem; 
     color: var(--text-main); 
     min-height: 200px;
-    background: transparent !important; /* Ensure body doesn't override */
+    background: transparent !important;
 }
 
-.buttons { display: flex; gap: 6px; margin-right: 1rem; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-.highlight-text { color: var(--accent); font-weight: 700; margin: 1rem 0; border-left: 3px solid var(--accent); padding-left: 1rem; display: block;}
+.terminal-body .comment {
+    color: var(--secondary);
+}
+
+.highlight-text { 
+    color: var(--accent); 
+    font-weight: 700; 
+    margin: 1rem 0; 
+    border-left: 3px solid var(--accent); 
+    padding-left: 1rem; 
+    display: block;
+}
 
 footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family: var(--font-display); font-size: 0.7rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
@@ -232,5 +255,3 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
-
-
