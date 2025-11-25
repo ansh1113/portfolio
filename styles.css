@@ -125,7 +125,7 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 /* SHARED CARD STYLE - GLASS EFFECT */
 .research-card, .project-card {
-    background: rgba(19, 19, 31, 0.25); /* <<< THIS IS THE GLASS OPACITY */
+    background: rgba(19, 19, 31, 0.1); /* <<< THIS IS THE GLASS OPACITY */
     border: 1px solid rgba(255,255,255,0.1); 
     padding: 2rem;
     backdrop-filter: blur(8px); /* Glass Blur */
@@ -183,7 +183,7 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 
 .terminal-window { 
     /* Set background to 25% opacity to match cards */
-    background: rgba(19, 19, 31, 0.25); 
+    background: rgba(19, 19, 31, 0.1); 
     border: 1px solid rgba(255,255,255,0.1); 
     border-radius: 8px; 
     width: 100%; 
@@ -224,3 +224,4 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .console-box { text-align: left; }
     .cta-group { justify-content: center; }
 }
+
