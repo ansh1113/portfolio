@@ -200,3 +200,39 @@ if (container) {
         }
     });
 }
+
+// Force glass effect to prevent any overrides
+document.addEventListener('DOMContentLoaded', () => {
+    const applyGlassEffect = () => {
+        // Apply to terminal window
+        const terminal = document.querySelector('.terminal-window');
+        if (terminal) {
+            terminal.style.setProperty('background', 'rgba(19, 19, 31, 0.15)', 'important');
+            terminal.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
+            terminal.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+        }
+
+        const terminalHeader = document.querySelector('.terminal-header');
+        if (terminalHeader) {
+            terminalHeader.style.setProperty('background', 'rgba(26, 26, 37, 0.3)', 'important');
+        }
+
+        const terminalBody = document.querySelector('.terminal-body');
+        if (terminalBody) {
+            terminalBody.style.setProperty('background', 'transparent', 'important');
+        }
+
+        // Apply to all cards
+        const cards = document.querySelectorAll('.research-card, .project-card');
+        cards.forEach(card => {
+            card.style.setProperty('background', 'rgba(19, 19, 31, 0.15)', 'important');
+            card.style.setProperty('backdrop-filter', 'blur(12px)', 'important');
+            card.style.setProperty('-webkit-backdrop-filter', 'blur(12px)', 'important');
+        });
+    };
+
+    // Apply immediately and after a short delay
+    applyGlassEffect();
+    setTimeout(applyGlassEffect, 100);
+    setTimeout(applyGlassEffect, 500);
+});
