@@ -35,17 +35,31 @@ body {
     pointer-events: none; /* Let clicks pass through */
 }
 
-/* --- CUSTOM ROBOTIC CURSOR --- */
-.cursor-dot, .cursor-outline {
+/* --- CUSTOM CROSSHAIR CURSOR --- */
+.cursor-dot {
   position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-  border-radius: 50%; z-index: 9999; pointer-events: none;
+  z-index: 9999; pointer-events: none;
+  width: 20px; height: 20px;
 }
-.cursor-dot { width: 5px; height: 5px; background-color: var(--accent); }
-.cursor-outline {
-  width: 30px; height: 30px; border: 1px solid var(--accent);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
+/* Crosshair using pseudo-elements */
+.cursor-dot::before, .cursor-dot::after {
+  content: ''; position: absolute; background-color: var(--accent);
+  transition: all 0.2s ease;
 }
-body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgba(0, 255, 204, 0.1); border-color: var(--secondary); }
+/* Horizontal line */
+.cursor-dot::before {
+  width: 20px; height: 1px; top: 50%; left: 0; transform: translateY(-50%);
+}
+/* Vertical line */
+.cursor-dot::after {
+  width: 1px; height: 20px; left: 50%; top: 0; transform: translateX(-50%);
+}
+/* Hover state - crosshair expands and changes color */
+body.hovering .cursor-dot::before { width: 28px; left: -4px; background-color: var(--secondary); }
+body.hovering .cursor-dot::after { height: 28px; top: -4px; background-color: var(--secondary); }
+
+/* Hide the outline element - not needed for crosshair */
+.cursor-outline { display: none; }
 
 /* --- BACKGROUND --- */
 .grid-overlay {
@@ -274,4 +288,3 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
    .contact-grid { flex-direction: column; align-items: center; width: 100%; }
    .contact-card { width: 100%; justify-content: center; }
 }
-
