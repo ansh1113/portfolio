@@ -6,14 +6,6 @@ setTimeout(() => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Research Cards (Slot in from right)
-        gsap.utils.toArray('.research-card').forEach((card, i) => {
-            gsap.fromTo(card, 
-                { x: 50, opacity: 0 },
-                { scrollTrigger: { trigger: card, start: "top 85%" }, x: 0, opacity: 1, duration: 0.6, delay: i * 0.1 }
-            );
-        });
-
         // Project Cards (Slot in from bottom)
         gsap.utils.toArray('.project-card').forEach((card, i) => {
             gsap.fromTo(card, 
@@ -51,7 +43,7 @@ if(cursorDot && cursorOutline) {
         cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 400, fill: "forwards" });
     });
 
-    const clickables = document.querySelectorAll('a, button, .research-card, .project-card');
+    const clickables = document.querySelectorAll('a, button, .project-card');
     clickables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
