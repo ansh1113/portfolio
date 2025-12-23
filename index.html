@@ -18,10 +18,30 @@
 </head>
 <body>
 
+  <!-- BOOT SEQUENCE OVERLAY -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-logo">&lt;AB /&gt;</div>
+      <div class="boot-terminal">
+        <p class="boot-line" data-delay="0">> INITIALIZING SYSTEM...</p>
+        <p class="boot-line" data-delay="300">> LOADING AUTONOMY MODULES...</p>
+        <p class="boot-line" data-delay="600">> CALIBRATING SENSORS...</p>
+        <p class="boot-line" data-delay="900">> ESTABLISHING NEURAL LINK...</p>
+        <p class="boot-line success" data-delay="1200">> SYSTEM READY</p>
+      </div>
+      <div class="boot-progress">
+        <div class="boot-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="cursor-dot" data-cursor-dot></div>
   <div class="cursor-outline" data-cursor-outline></div>
 
   <div id="bg-canvas-container"></div>
+  
+  <!-- FLOATING PARTICLES CONTAINER -->
+  <div id="particles-container"></div>
 
   <div class="grid-overlay"></div>
   <div class="scanline"></div>
@@ -56,6 +76,7 @@
           <a href="Resume.pdf" target="_blank" class="btn secondary"><i class="fas fa-file-download"></i> RESUME_V2.5</a>
         </div>
       </div>
+      <!-- HUMANOID WIREFRAME CONTAINER (replaces globe) -->
       <div id="canvas-container"></div>
     </div>
   </header>
@@ -161,26 +182,50 @@
       <div class="line"></div>
     </div>
     <div class="projects-grid">
-        <!-- NEW: 3 Completed Research Projects -->
-        <div class="project-card">
-            <h3>Open-Vocabulary 6D Pose Estimation</h3>
-            <div class="tags"><span class="tag">FoundationPose</span><span class="tag">SAM-3</span><span class="tag">Moondream2</span></div>
-            <p class="project-desc">Zero-shot 6D tracking architecture with VLM-based semantic inventory and Gemini API query enrichment. Integrated SAM-3 segmentation with Objaverse mesh retrieval, achieving 76.5-100% ADD-S AUC on YCB-Video.</p>
-            <div class="project-links"><a href="https://drive.google.com/file/d/1Yu5WMHfaZ5Z92mDNHLYira6MxSrRKHLw/view?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> VIEW_REPORT</a></div>
+        <!-- FEATURED PROJECTS WITH THUMBNAILS -->
+        <div class="project-card featured">
+            <div class="project-thumbnail">
+                <img src="assets/6dpose-thumb.gif" alt="6D Pose Estimation Demo" loading="lazy">
+                <div class="thumbnail-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Open-Vocabulary 6D Pose Estimation</h3>
+                <div class="tags"><span class="tag">FoundationPose</span><span class="tag">SAM-3</span><span class="tag">Moondream2</span></div>
+                <p class="project-desc">Zero-shot 6D tracking architecture with VLM-based semantic inventory. Achieved 76.5-100% ADD-S AUC on YCB-Video.</p>
+                <div class="project-links"><a href="https://drive.google.com/file/d/1Yu5WMHfaZ5Z92mDNHLYira6MxSrRKHLw/view?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> VIEW_REPORT</a></div>
+            </div>
         </div>
-        <div class="project-card">
-            <h3>Dynamic Object Handover System</h3>
-            <div class="tags"><span class="tag">MuJoCo</span><span class="tag">MediaPipe</span><span class="tag">ROBOTIS AI Worker</span></div>
-            <p class="project-desc">Vision-based HRI system with real-time hand tracking for adaptive human-robot handover. Implemented Jacobian-based IK with velocity limiting and MediaPipe gesture recognition for seamless object transfer.</p>
-            <div class="project-links"><a href="https://drive.google.com/file/d/1tCAbUo4cCS2Kb3jpLjC38qfcXcKnx5T1/view?usp=sharing" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
+        <div class="project-card featured">
+            <div class="project-thumbnail">
+                <img src="assets/handover-thumb.gif" alt="Dynamic Handover Demo" loading="lazy">
+                <div class="thumbnail-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Dynamic Object Handover System</h3>
+                <div class="tags"><span class="tag">MuJoCo</span><span class="tag">MediaPipe</span><span class="tag">ROBOTIS AI Worker</span></div>
+                <p class="project-desc">Vision-based HRI with real-time hand tracking. Robot adapts to human position for seamless object transfer.</p>
+                <div class="project-links"><a href="https://drive.google.com/file/d/1tCAbUo4cCS2Kb3jpLjC38qfcXcKnx5T1/view?usp=sharing" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
+            </div>
         </div>
-        <div class="project-card">
-            <h3>Pedestrian-Aware AV Safety System</h3>
-            <div class="tags"><span class="tag">ROS2</span><span class="tag">YOLOv11</span><span class="tag">LiDAR</span><span class="tag">GEM e4</span></div>
-            <p class="project-desc">TTC-driven safety architecture for the GEM autonomous vehicle. Fused LiDAR clustering and RGB-D detection for pedestrian tracking with trajectory prediction, achieving 90% success rate with Stanley control.</p>
-            <div class="project-links"><a href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
+        <div class="project-card featured">
+            <div class="project-thumbnail">
+                <img src="assets/autoshield-thumb.gif" alt="AutoShield Demo" loading="lazy">
+                <div class="thumbnail-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Pedestrian-Aware AV Safety System</h3>
+                <div class="tags"><span class="tag">ROS2</span><span class="tag">YOLOv11</span><span class="tag">LiDAR</span><span class="tag">GEM e4</span></div>
+                <p class="project-desc">TTC-driven safety architecture. Fused LiDAR + RGB-D for pedestrian tracking with 90% success rate.</p>
+                <div class="project-links"><a href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
+            </div>
         </div>
-        <!-- EXISTING Projects -->
+        <!-- EXISTING Projects (no thumbnails) -->
         <div class="project-card">
             <h3>Humanoid Motion Planning</h3>
             <div class="tags"><span class="tag">Drake</span><span class="tag">MoveIt</span><span class="tag">C++</span></div>
