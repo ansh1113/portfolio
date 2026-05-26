@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ansh Bhansali | Autonomy Engineer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ansh Bhansali - Robotics Engineer specializing in VLA models, cross-embodiment learning, trajectory optimization, and safe autonomy. MS Robotics @ UIUC.">
+  <meta name="keywords" content="robotics, VLA models, autonomous vehicles, trajectory optimization, humanoid robots, ROS2, vision-language-action, cross-embodiment learning">
+  <meta name="author" content="Ansh Bhansali">
+  
+  <!-- Open Graph tags for LinkedIn/social sharing -->
+  <meta property="og:title" content="Ansh Bhansali | Autonomy Engineer">
+  <meta property="og:description" content="Robotics Engineer building VLA models and cross-embodiment learning systems. MS Robotics @ UIUC.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anshbhansali.com">
+  
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -66,14 +78,14 @@
         <h1 class="hero-title">AUTONOMY <br><span class="highlight">ARCHITECT</span></h1>
         
         <div class="console-box">
-            <p class="console-text"><span class="prompt">></span> CURRENT_TASK: Master's_Robotics_UIUC</p>
-            <p class="console-text"><span class="prompt">></span> FOCUS: Humanoids, Safe Autonomy, Embedded AI</p>
+            <p class="console-text"><span class="prompt">></span> CURRENT_TASK: Master's_Robotics_UIUC (Graduating Jul 2026)</p>
+            <p class="console-text"><span class="prompt">></span> FOCUS: VLA Models, Cross-Embodiment Learning, Safe Trajectory Optimization</p>
             <p class="console-text"><span class="prompt">></span> STATUS: Developing Intelligent Systems</p>
         </div>
 
         <div class="cta-group">
           <a href="#projects" class="btn primary">VIEW_PROJECTS</a>
-          <a href="Resume.pdf" target="_blank" class="btn secondary"><i class="fas fa-file-download"></i> RESUME_V2.5</a>
+          <a href="Resume.pdf" target="_blank" class="btn secondary"><i class="fas fa-file-download"></i> RESUME_V3.0</a>
         </div>
       </div>
       <!-- HUMANOID WIREFRAME CONTAINER (replaces globe) -->
@@ -94,6 +106,8 @@
                   <span>ROS 2 / Nav2</span>
                   <span>SLAM (VINS-Fusion, ORB-SLAM3)</span>
                   <span>Motion Planning (MoveIt, OMPL, RRT*)</span>
+                  <span>Trajectory Optimization (ProxQP, CHOMP)</span>
+                  <span>A* Planning / Stanley Control</span>
                   <span>Sensor Fusion (Kalman Filters)</span>
                   <span>Control Barrier Functions (CBF)</span>
               </div>
@@ -102,9 +116,12 @@
               <h3><i class="fas fa-brain"></i> AI_&_PERCEPTION</h3>
               <div class="tag-list">
                   <span>VLA Models</span>
+                  <span>Vision-Language Models (GPT-4o)</span>
+                  <span>Vision Transformers (ViT, Cross-Attention)</span>
                   <span>Transformers (CLIP, Whisper)</span>
-                  <span>Computer Vision (OpenCV,SAM, YOLO)</span>
+                  <span>Computer Vision (OpenCV, SAM, YOLO)</span>
                   <span>Deep Learning (PyTorch, TensorFlow)</span>
+                  <span>Contrastive Learning</span>
                   <span>Reinforcement Learning (PPO)</span>
                   <span>6D Pose Estimation</span>
                   <span>Point Cloud Processing</span>
@@ -233,6 +250,22 @@
           </div>
         </div>
 
+       <!-- EXISTING PROJECT: Humanoid Motion Planning -->
+        <div class="project-card featured">
+            <div class="project-thumbnail">
+                <img src="locomotion.gif" alt="Locomotion Demo" loading="lazy">
+                <div class="thumbnail-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Humanoid Motion Planning</h3>
+                <div class="tags"><span class="tag">RL</span><span class="tag">ZMP</span><span class="tag">MPC</span></div>
+                <p class="project-desc">Implemented whole-body locomotion and motion planning for Unitree G1. Enforced ZMP control, MPC balance and RL locomotion for stable manipulation and reaching tasks.</p>
+                <div class="project-links"><a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
+            </div>
+        </div>
+
         <!-- NEW PROJECT 2: CrossViT -->
         <div class="project-card featured">
           <div class="project-thumbnail">
@@ -254,6 +287,22 @@
               <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a>
             </div>
           </div>
+        </div>
+
+       <!-- EXISTING PROJECT: Pedestrian-Aware AV -->
+        <div class="project-card featured">
+            <div class="project-thumbnail">
+                <img src="AutoShield GEM.gif" alt="AutoShield Demo" loading="lazy">
+                <div class="thumbnail-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Pedestrian-Aware AV Safety System</h3>
+                <div class="tags"><span class="tag">ROS2</span><span class="tag">YOLOv11</span><span class="tag">LiDAR</span><span class="tag">GEM e4</span></div>
+                <p class="project-desc">TTC-driven safety architecture. Fused LiDAR + RGB-D for pedestrian tracking with 90% success rate.</p>
+                <div class="project-links"><a href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
+            </div>
         </div>
 
         <!-- NEW PROJECT 3: O-VLA Trajectory Optimization -->
@@ -278,8 +327,9 @@
             </div>
           </div>
         </div>
-        
-        <!-- EXISTING PROJECT: 6D Pose Estimation -->
+
+
+       <!-- EXISTING PROJECT: 6D Pose Estimation -->
         <div class="project-card featured">
             <div class="project-thumbnail">
                 <img src="6d.jpg" alt="6D Pose Estimation Demo" loading="lazy">
@@ -295,7 +345,7 @@
             </div>
         </div>
 
-        <!-- EXISTING PROJECT: Dynamic Handover -->
+       <!-- EXISTING PROJECT: Dynamic Handover -->
         <div class="project-card featured">
             <div class="project-thumbnail">
                 <img src="ECE598JK_demo.gif" alt="Dynamic Handover Demo" loading="lazy">
@@ -308,38 +358,6 @@
                 <div class="tags"><span class="tag">MuJoCo</span><span class="tag">MediaPipe</span><span class="tag">ROBOTIS AI Worker</span></div>
                 <p class="project-desc">Vision-based HRI with real-time hand tracking. Robot adapts to human position for seamless object transfer.</p>
                 <div class="project-links"><a href="https://drive.google.com/file/d/1tCAbUo4cCS2Kb3jpLjC38qfcXcKnx5T1/view?usp=sharing" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
-            </div>
-        </div>
-
-        <!-- EXISTING PROJECT: Pedestrian-Aware AV -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="AutoShield GEM.gif" alt="AutoShield Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Pedestrian-Aware AV Safety System</h3>
-                <div class="tags"><span class="tag">ROS2</span><span class="tag">YOLOv11</span><span class="tag">LiDAR</span><span class="tag">GEM e4</span></div>
-                <p class="project-desc">TTC-driven safety architecture. Fused LiDAR + RGB-D for pedestrian tracking with 90% success rate.</p>
-                <div class="project-links"><a href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
-            </div>
-        </div>
-
-        <!-- EXISTING PROJECT: Humanoid Motion Planning -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="locomotion.gif" alt="Locomotion Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Humanoid Motion Planning</h3>
-                <div class="tags"><span class="tag">RL</span><span class="tag">ZMP</span><span class="tag">MPC</span></div>
-                <p class="project-desc">Implemented whole-body locomotion and motion planning for Unitree G1. Enforced ZMP control, MPC balance and RL locomotion for stable manipulation and reaching tasks.</p>
-                <div class="project-links"><a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
             </div>
         </div>
 
@@ -409,10 +427,10 @@
                 <p>Robots that learn tasks from watching humans — then execute them safely in the real world.</p>
                 <br>
                 <p><span class="prompt">></span> <span class="comment"># CURRENT FOCUS</span></p>
-                <p>Building an optimized <strong>Vision-Language-Action pipeline</strong> that converts unstructured video demonstrations into executable robot primitives, bridging the gap between internet-scale knowledge and physical manipulation.</p>
+                <p>Building <strong>cross-embodiment learning systems</strong> that enable vision-language-action models to transfer across robot morphologies. Combining <strong>trajectory optimization safety layers</strong> with <strong>kinematic-conditioned visual representations</strong> to bridge internet-scale knowledge and physical manipulation.</p>
                 <br>
                 <p><span class="prompt">></span> <span class="comment"># THE BIGGER PICTURE</span></p>
-                <p>General-purpose robots need a <strong>skill layer</strong> — modular, verifiable behaviors that can be composed, transferred, and deployed across platforms. I'm focused on making that layer <strong>learnable from real-world data</strong> and <strong>safe by construction</strong>, using simulation-first validation and control-theoretic safety guarantees.</p>
+                <p>General-purpose robots need a <strong>skill layer</strong> — modular, verifiable behaviors that can be composed, transferred, and deployed across platforms. I'm focused on making that layer <strong>learnable from real-world data</strong>, <strong>morphology-agnostic</strong>, and <strong>safe by construction</strong>, using physics-based optimization and control-theoretic safety guarantees.</p>
             </div>
         </div>
     </div>
@@ -447,11 +465,3 @@
   <script type="module" src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
