@@ -154,7 +154,11 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 .research-desc { font-size: 0.9rem; color: var(--text-dim); }
 
 /* --- SKILLS --- */
-.skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
 .skill-category h3 { font-family: var(--font-display); color: var(--text-main); font-size: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--secondary); padding-bottom: 10px; display: inline-block; }
 .tag-list { display: flex; flex-direction: column; gap: 10px; }
 .tag-list span { 
@@ -489,6 +493,9 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-family:
     .project-thumbnail { height: 150px; }
     #particles-container { display: none; }
     section { padding: 4rem 6%; }
+   .skills-container {
+    grid-template-columns: 1fr;
+}
 }
 
 /* Touch / no-hover devices: restore the native cursor. */
