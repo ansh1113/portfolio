@@ -17,16 +17,16 @@ if (bootScreen) {
     
     // Progress bar animation
     if (progressBar) {
-        progressBar.style.animation = 'bootProgress 1.8s ease-out forwards';
+        progressBar.style.animation = 'bootProgress 1s ease-out forwards';
     }
     
-    // Hide boot screen after animation
+    // Hide boot screen quickly - short sequence, don't make people wait
     setTimeout(() => {
         bootScreen.classList.add('fade-out');
         setTimeout(() => {
             bootScreen.style.display = 'none';
-        }, 500);
-    }, 2000);
+        }, 400);
+    }, 1000);
 }
 
 // --- 1. GSAP SCROLL ANIMATIONS ---
@@ -174,7 +174,7 @@ if (bgContainer) {
     });
 }
 
-// --- 5. HUMANOID WIREFRAME (Replaces Globe) ---
+// --- 5. HUMANOID WIREFRAME (Hero Visual) ---
 const container = document.getElementById('canvas-container');
 
 if (container) {
