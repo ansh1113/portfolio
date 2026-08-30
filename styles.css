@@ -189,6 +189,25 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
 }
 .highlight-card .metric-row { margin-bottom: 0; }
 
+.core-strengths {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 3rem;
+}
+.core-strengths span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: rgba(0, 255, 204, 0.06);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    padding: 8px 14px;
+    border-radius: 2px;
+}
+
 /* --- SKILLS --- */
 .skills-container {
     display: grid;
@@ -267,6 +286,50 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     transition: 0.3s;
 }
 .project-links a:hover { color: var(--accent); background: rgba(0, 255, 204, 0.1); }
+
+/* --- CASE STUDY DETAILS --- */
+.case-study {
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.2);
+}
+.case-study summary {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    padding: 10px 14px;
+    cursor: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.case-study summary::-webkit-details-marker { display: none; }
+.case-study summary::after {
+    content: '+';
+    font-size: 1rem;
+    color: var(--text-dim);
+    transition: transform 0.2s ease;
+}
+.case-study[open] summary::after { transform: rotate(45deg); }
+.case-study-body {
+    padding: 0 14px 14px;
+}
+.case-study-body p {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+.case-study-body p:last-child { margin-bottom: 0; }
+.case-label {
+    color: var(--text-main);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.3px;
+    margin-right: 4px;
+}
 
 /* --- VISION --- */
 .vision-container { display: flex; justify-content: center; }
