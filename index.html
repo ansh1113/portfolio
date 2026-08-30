@@ -110,7 +110,7 @@
 
           <p class="console-text">
             <span class="prompt">></span>
-            M.Eng. Autonomy &amp; Robotics @ UIUC — graduating Dec 2026
+            Master's in Autonomy &amp; Robotics @ UIUC, graduating Dec 2026
           </p>
         </div>
 
@@ -138,184 +138,74 @@
       <div class="line"></div>
     </div>
 
-    <p class="section-intro">
-      The four projects that best represent how I work — the rest are
-      further down in <a href="#projects">Additional Modules</a>.
-    </p>
+    <div class="highlights-grid">
 
-    <div class="projects-grid featured-grid">
+      <!-- IHSI Research Engineer -->
+      <div class="highlight-card">
+        <i class="fas fa-user-md highlight-icon"></i>
+        <h3>Research Engineer, Robotic Microsurgery</h3>
+        <p class="highlight-desc">
+          Real-time impedance force control for a KUKA LBR Med 7 + hexapod, part of
+          an ARPA-H-funded AI-guided microsurgery project at UIUC.
+        </p>
+        <div class="metric-row">
+          <span>&lt;10ms command latency</span>
+          <span>10µm 3D reconstruction</span>
+        </div>
+      </div>
 
       <!-- O-VLA -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="ovla_trajectory.png" alt="O-VLA Trajectory Optimization" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <span class="env-badge badge-sim">SIMULATION · MULTI-MORPHOLOGY</span>
-
-          <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
-
-          <p class="project-tagline">Making learned robot actions safe before execution.</p>
-
-          <div class="tags">
-            <span class="tag">ProxQP</span>
-            <span class="tag">CHOMP</span>
-            <span class="tag">RNEA</span>
-            <span class="tag">Pinocchio</span>
-          </div>
-
-          <p class="project-desc">
-            A morphology-agnostic optimizer that turns unsafe VLA-generated trajectories
-            into collision-free, constraint-satisfying motion across 5 robot morphologies
-            (6-23 DOF), in 0.03-0.44s per trajectory.
-          </p>
-
-          <div class="metric-row">
-            <span>100% constraint satisfaction</span>
-            <span>60-100% collision reduction</span>
-            <span>34-45% lower energy via RNEA</span>
-          </div>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
+      <div class="highlight-card">
+        <i class="fas fa-shield-halved highlight-icon"></i>
+        <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
+        <p class="highlight-desc">
+          A morphology-agnostic optimizer that turns unsafe VLA-generated
+          trajectories into collision-free, constraint-satisfying motion.
+        </p>
+        <div class="metric-row">
+          <span>100% constraint satisfaction</span>
+          <span>5 robot morphologies</span>
         </div>
       </div>
 
       <!-- VLA Kitchen Agent -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="vla.gif" alt="VLA Project Demo" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <span class="env-badge badge-sim">SIMULATION · AI2-THOR</span>
-
-          <h3>Vision-Language-Action System for Manipulation</h3>
-
-          <p class="project-tagline">Turning human demonstration videos into executable robot actions.</p>
-
-          <div class="tags">
-            <span class="tag">Whisper</span>
-            <span class="tag">CLIP</span>
-            <span class="tag">GPT-4V</span>
-            <span class="tag">Transformer</span>
-          </div>
-
-          <p class="project-desc">
-            An end-to-end pipeline that extracts actions from unconstrained cooking
-            videos and maps them to robot primitives. Trained a 19M-parameter temporal
-            model on 1.6k+ clips, including a novel Indian-cooking dataset.
-          </p>
-
-          <div class="metric-row">
-            <span>77-85% action accuracy</span>
-            <span>60-70% zero-shot transfer</span>
-            <span>85-90% success in AI2-THOR</span>
-          </div>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
+      <div class="highlight-card">
+        <i class="fas fa-video highlight-icon"></i>
+        <h3>Vision-Language-Action System for Manipulation</h3>
+        <p class="highlight-desc">
+          An end-to-end pipeline turning unseen YouTube cooking videos into
+          executable robot commands, trained on 1.6k+ clips.
+        </p>
+        <div class="metric-row">
+          <span>77-85% action accuracy</span>
+          <span>85-90% success in AI2-THOR</span>
         </div>
       </div>
 
       <!-- CrossViT -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="crossvit_attention.png" alt="CrossViT Cross-Attention Maps" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <span class="env-badge badge-research">RESEARCH · REPRESENTATION LEARNING</span>
-
-          <h3>Cross-Embodiment Robot Perception</h3>
-
-          <p class="project-tagline">Learning visual representations that account for robot morphology.</p>
-
-          <div class="tags">
-            <span class="tag">Vision Transformer</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Contrastive Learning</span>
-          </div>
-
-          <p class="project-desc">
-            A cross-attention ViT conditioned on 32-dim kinematic features, producing
-            embodiment-aware representations that generalize to unseen humanoid robots
-            with morphologically meaningful embedding structure.
-          </p>
-
-          <div class="metric-row">
-            <span>99.3-100% embodiment classification</span>
-            <span>vs. 20% random-chance baseline</span>
-          </div>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
+      <div class="highlight-card">
+        <i class="fas fa-diagram-project highlight-icon"></i>
+        <h3>Cross-Embodiment Robot Perception</h3>
+        <p class="highlight-desc">
+          A cross-attention ViT conditioned on kinematic features, producing
+          representations that transfer to unseen humanoid robots.
+        </p>
+        <div class="metric-row">
+          <span>99.3-100% embodiment classification</span>
         </div>
       </div>
 
       <!-- Humanoid Motion Planning -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="locomotion.gif" alt="Locomotion Demo" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <span class="env-badge badge-sim">SIMULATION · MUJOCO</span>
-
-          <h3>Humanoid Whole-Body Motion Planning</h3>
-
-          <p class="project-tagline">Planning and control for whole-body locomotion and manipulation.</p>
-
-          <div class="tags">
-            <span class="tag">Unitree G1</span>
-            <span class="tag">MPC</span>
-            <span class="tag">ZMP</span>
-            <span class="tag">RL</span>
-          </div>
-
-          <p class="project-desc">
-            A whole-body stack using ZMP preview control, A* footstep planning, and
-            MPC balance optimization, integrated with RL-based locomotion and Jacobian
-            IK for coordinated walk-and-reach tasks on the Unitree G1.
-          </p>
-
-          <div class="metric-row">
-            <span>49% lower energy vs. PD control</span>
-            <span>stable under 70-80N perturbation</span>
-            <span>75%+ task success</span>
-          </div>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
+      <div class="highlight-card">
+        <i class="fas fa-person-walking highlight-icon"></i>
+        <h3>Humanoid Whole-Body Motion Planning</h3>
+        <p class="highlight-desc">
+          ZMP preview control, A* footstep planning, and MPC balance
+          optimization for the Unitree G1, with RL-based locomotion.
+        </p>
+        <div class="metric-row">
+          <span>49% lower energy vs. PD control</span>
+          <span>75%+ task success</span>
         </div>
       </div>
 
@@ -352,10 +242,6 @@
           <ul class="log-list">
             <li>
               Robotics engineering for agricultural manipulation systems.
-            </li>
-            <li class="log-note">
-              Project details are under NDA — happy to walk through my general
-              approach in conversation.
             </li>
           </ul>
         </div>
@@ -568,51 +454,78 @@
     <div class="skills-container">
 
       <div class="skill-category">
-        <h3><i class="fas fa-brain"></i> ROBOT_LEARNING_&_AI</h3>
+        <h3><i class="fas fa-brain"></i> AI_&_ROBOT_LEARNING</h3>
         <div class="tag-list">
-          <span>VLA Systems</span>
-          <span>Reinforcement Learning</span>
-          <span>Vision Transformers</span>
-          <span>Computer Vision (YOLO, SAM)</span>
+          <span>Vision-Language-Action Models</span>
+          <span>Vision-Language Models</span>
+          <span>Transformers / Vision Transformers</span>
+          <span>Cross-Attention</span>
+          <span>Contrastive Learning</span>
+          <span>Reinforcement Learning (PPO)</span>
+          <span>Imitation Learning</span>
+          <span>Foundation Models</span>
+          <span>PyTorch / TensorFlow</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3><i class="fas fa-robot"></i> PLANNING_&_CONTROL</h3>
+        <h3><i class="fas fa-robot"></i> AUTONOMY_&_CONTROL</h3>
         <div class="tag-list">
-          <span>Motion / Trajectory Planning</span>
+          <span>Motion Planning / Path Planning</span>
+          <span>Trajectory Optimization</span>
           <span>MPC / ZMP Control</span>
           <span>Control Barrier Functions</span>
           <span>Force / Impedance Control</span>
+          <span>Jacobian IK / Inverse Dynamics</span>
+          <span>A* / Stanley Control</span>
+          <span>QP Solvers (ProxQP)</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3><i class="fas fa-cube"></i> ROBOT_SYSTEMS</h3>
+        <h3><i class="fas fa-eye"></i> PERCEPTION_&_STATE_ESTIMATION</h3>
         <div class="tag-list">
-          <span>ROS 2 / MoveIt</span>
-          <span>MuJoCo / Isaac Sim</span>
-          <span>Sensor Fusion / SLAM</span>
+          <span>Computer Vision (YOLO, SAM)</span>
+          <span>6D Pose Estimation</span>
+          <span>LiDAR / Point Cloud Processing</span>
+          <span>LiDAR-Camera Fusion</span>
+          <span>BEV Perception</span>
+          <span>SLAM / VIO</span>
+          <span>EKF / Sensor Fusion</span>
+          <span>Localization / Mapping</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-cube"></i> SIMULATION_&_SOFTWARE</h3>
+        <div class="tag-list">
+          <span>ROS 2 / MoveIt / Nav2</span>
+          <span>MuJoCo</span>
+          <span>Isaac Sim / Isaac Gym</span>
+          <span>Gazebo</span>
+          <span>PyBullet</span>
+          <span>AI2-THOR</span>
+          <span>Pinocchio</span>
+          <span>Linux / Git</span>
           <span>Real-Time Systems</span>
+          <span>Sim-to-Real / Hardware Validation</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3><i class="fas fa-microchip"></i> HARDWARE_&_EMBEDDED</h3>
+        <h3><i class="fas fa-microchip"></i> EMBEDDED_&_HARDWARE</h3>
         <div class="tag-list">
-          <span>C++ / Python</span>
+          <span>Python / C++ / MATLAB / Java / Bash</span>
           <span>STM32 / ESP32 Firmware</span>
           <span>PCB Design (KiCad)</span>
-          <span>Sim-to-Real Deployment</span>
+          <span>I2C / SPI / UART / CAN</span>
+          <span>MQTT / IoT</span>
+          <span>Fleet Management / OTA Updates</span>
+          <span>Battery Management / Regenerative Braking</span>
         </div>
       </div>
 
     </div>
-
-    <p class="skills-footnote">
-      Full toolset — including MATLAB, Java, Gazebo, PyBullet, AI2-THOR, and
-      Pinocchio — is listed on my <a href="Resume.pdf" target="_blank">résumé</a>.
-    </p>
 
   </section>
 
@@ -620,16 +533,174 @@
 
     <div class="section-header">
       <span class="section-num">04</span>
-      <h2>ADDITIONAL_MODULES</h2>
+      <h2>PROJECT_MODULES</h2>
       <div class="line"></div>
     </div>
 
     <p class="section-intro">
-      More of what I've built, spanning autonomous vehicles, manipulation,
-      and embedded systems.
+      Everything I've built, spanning robot learning, manipulation, autonomous
+      vehicles, and embedded systems.
     </p>
 
     <div class="projects-grid">
+
+      <!-- O-VLA -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="ovla_trajectory.png" alt="O-VLA Trajectory Optimization" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
+
+          <div class="tags">
+            <span class="tag">ProxQP</span>
+            <span class="tag">CHOMP</span>
+            <span class="tag">RNEA</span>
+            <span class="tag">Pinocchio</span>
+          </div>
+
+          <p class="project-desc">
+            A morphology-agnostic optimizer that turns unsafe VLA-generated trajectories
+            into collision-free, constraint-satisfying motion across 5 robot morphologies
+            (6-23 DOF), in 0.03-0.44s per trajectory.
+          </p>
+
+          <div class="metric-row">
+            <span>100% constraint satisfaction</span>
+            <span>60-100% collision reduction</span>
+            <span>34-45% lower energy via RNEA</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VLA Kitchen Agent -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="vla.gif" alt="VLA Project Demo" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Vision-Language-Action System for Manipulation</h3>
+
+          <div class="tags">
+            <span class="tag">Whisper</span>
+            <span class="tag">CLIP</span>
+            <span class="tag">GPT-4V</span>
+            <span class="tag">Transformer</span>
+          </div>
+
+          <p class="project-desc">
+            An end-to-end pipeline that extracts actions from unconstrained cooking
+            videos and maps them to robot primitives. Trained a 19M-parameter temporal
+            model on 1.6k+ clips, including a novel Indian-cooking dataset.
+          </p>
+
+          <div class="metric-row">
+            <span>77-85% action accuracy</span>
+            <span>60-70% zero-shot transfer</span>
+            <span>85-90% success in AI2-THOR</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CrossViT -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="crossvit_attention.png" alt="CrossViT Cross-Attention Maps" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Cross-Embodiment Robot Perception</h3>
+
+          <div class="tags">
+            <span class="tag">Vision Transformer</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Contrastive Learning</span>
+          </div>
+
+          <p class="project-desc">
+            A cross-attention ViT conditioned on 32-dim kinematic features, producing
+            embodiment-aware representations that generalize to unseen humanoid robots
+            with morphologically meaningful embedding structure.
+          </p>
+
+          <div class="metric-row">
+            <span>99.3-100% embodiment classification</span>
+            <span>vs. 20% random-chance baseline</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Humanoid Motion Planning -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="locomotion.gif" alt="Locomotion Demo" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Humanoid Whole-Body Motion Planning</h3>
+
+          <div class="tags">
+            <span class="tag">Unitree G1</span>
+            <span class="tag">MPC</span>
+            <span class="tag">ZMP</span>
+            <span class="tag">RL</span>
+          </div>
+
+          <p class="project-desc">
+            A whole-body stack using ZMP preview control, A* footstep planning, and
+            MPC balance optimization, integrated with RL-based locomotion and Jacobian
+            IK for coordinated walk-and-reach tasks on the Unitree G1.
+          </p>
+
+          <div class="metric-row">
+            <span>49% lower energy vs. PD control</span>
+            <span>stable under 70-80N perturbation</span>
+            <span>75%+ task success</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
 
       <!-- VLM Autonomous Navigation -->
       <div class="project-card">
@@ -640,8 +711,6 @@
         </div>
 
         <div class="project-content">
-
-          <span class="env-badge badge-real">REAL VEHICLE · GEM E4</span>
 
           <h3>VLM-Based Autonomous Navigation</h3>
 
@@ -675,8 +744,6 @@
 
         <div class="project-content">
 
-          <span class="env-badge badge-research">DATASET · YCB-VIDEO</span>
-
           <h3>Open-Vocabulary 6D Pose Estimation</h3>
 
           <div class="tags">
@@ -709,8 +776,6 @@
 
         <div class="project-content">
 
-          <span class="env-badge badge-real">REAL VEHICLE · GEM E4</span>
-
           <h3>Pedestrian-Aware AV Safety System</h3>
 
           <div class="tags">
@@ -742,8 +807,6 @@
 
         <div class="project-content">
 
-          <span class="env-badge badge-real">REAL HARDWARE · AI WORKER</span>
-
           <h3>Dynamic Object Handover System</h3>
 
           <div class="tags">
@@ -769,8 +832,6 @@
 
       <div class="project-card compact">
 
-        <span class="env-badge badge-sim">SIMULATION</span>
-
         <h3>Terrain-Aware Navigation</h3>
 
         <div class="tags">
@@ -791,8 +852,6 @@
       </div>
 
       <div class="project-card compact">
-
-        <span class="env-badge badge-sim">SIMULATION · ISAAC GYM</span>
 
         <h3>RL Locomotion + Safety Layer</h3>
 
@@ -816,8 +875,6 @@
 
       <div class="project-card compact">
 
-        <span class="env-badge badge-sim">SIMULATION · ISAAC GYM</span>
-
         <h3>Quadruped Locomotion (RL)</h3>
 
         <div class="tags">
@@ -838,8 +895,6 @@
       </div>
 
       <div class="project-card compact">
-
-        <span class="env-badge badge-sim">SIMULATION · GPS-DENIED</span>
 
         <h3>VIO + Footstep Planning</h3>
 
@@ -868,8 +923,6 @@
         </div>
 
         <div class="project-content">
-
-          <span class="env-badge badge-real">REAL HARDWARE · 5-DOF ARM</span>
 
           <h3>EMG-Controlled Prosthetic Arm</h3>
 
@@ -941,7 +994,7 @@
 
           <p>
             How learned behaviors can transfer across robot morphologies while
-            staying physically feasible and safe to execute — combining
+            staying physically feasible and safe to execute, combining
             <strong>cross-embodiment perception</strong> with
             <strong>trajectory optimization safety layers</strong>.
           </p>
@@ -956,7 +1009,7 @@
           <p>
             I'm a robotics engineer working across robot learning, perception,
             planning, and control. I like building systems that connect
-            modern AI with the physical realities of robotics — from learned
+            modern AI with the physical realities of robotics, from learned
             representations and VLA models to real-time force control on
             actual hardware.
           </p>
