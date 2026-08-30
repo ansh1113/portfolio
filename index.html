@@ -150,7 +150,7 @@
         </p>
         <div class="metric-row">
           <span>&lt;10ms command latency</span>
-          <span>10µm 3D reconstruction</span>
+          <span>10µm 3D reconstruction (tissue phantoms)</span>
         </div>
       </div>
 
@@ -164,7 +164,7 @@
         </p>
         <div class="metric-row">
           <span>100% constraint satisfaction</span>
-          <span>5 robot morphologies</span>
+          <span>5 morphologies, 6-23 DOF</span>
         </div>
       </div>
 
@@ -177,7 +177,7 @@
           executable robot commands, trained on 1.6k+ clips.
         </p>
         <div class="metric-row">
-          <span>77-85% action accuracy</span>
+          <span>77-85% action accuracy (held-out clips)</span>
           <span>85-90% success in AI2-THOR</span>
         </div>
       </div>
@@ -191,7 +191,7 @@
           representations that transfer to unseen humanoid robots.
         </p>
         <div class="metric-row">
-          <span>99.3-100% embodiment classification</span>
+          <span>99.3-100% classification vs. 20% baseline</span>
         </div>
       </div>
 
@@ -204,8 +204,8 @@
           optimization for the Unitree G1, with RL-based locomotion.
         </p>
         <div class="metric-row">
-          <span>49% lower energy vs. PD control</span>
-          <span>75%+ task success</span>
+          <span>49% lower energy vs. PD baseline</span>
+          <span>75%+ task success (MuJoCo)</span>
         </div>
       </div>
 
@@ -447,8 +447,21 @@
 
     <div class="section-header">
       <span class="section-num">03</span>
-      <h2>CORE_EXPERTISE</h2>
+      <h2>SYSTEM_SPECIFICATIONS</h2>
       <div class="line"></div>
+    </div>
+
+    <p class="section-intro">
+      Still exploring which corner of robotics I go deepest in as a new grad,
+      so I've kept the full stack below. Where I currently go deepest:
+    </p>
+
+    <div class="core-strengths">
+      <span><i class="fas fa-brain"></i> Robot Learning (VLA / RL)</span>
+      <span><i class="fas fa-robot"></i> Motion Planning &amp; Control</span>
+      <span><i class="fas fa-eye"></i> Perception &amp; Sensor Fusion</span>
+      <span><i class="fas fa-cube"></i> Simulation &amp; Sim-to-Real</span>
+      <span><i class="fas fa-microchip"></i> Embedded Systems</span>
     </div>
 
     <div class="skills-container">
@@ -575,6 +588,15 @@
             <span>34-45% lower energy via RNEA</span>
           </div>
 
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> VLA policies can output trajectories that violate joint limits or collide with the environment, and those failure modes don't transfer cleanly across robots with different kinematics.</p>
+              <p><span class="case-label">My contribution:</span> Built the full optimization layer, including a fast hierarchical approach (ProxQP + CHOMP) and a slower coupled-dynamics approach using Pinocchio RNEA.</p>
+              <p><span class="case-label">Trade-off:</span> the coupled-dynamics formulation gets better energy results but is meaningfully slower than the hierarchical approach, so the right choice depends on the latency budget.</p>
+            </div>
+          </details>
+
           <div class="project-links">
             <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank">
               <i class="fab fa-github"></i> SOURCE_CODE
@@ -615,6 +637,15 @@
             <span>85-90% success in AI2-THOR</span>
           </div>
 
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> teaching a robot new manipulation skills usually means collecting robot-specific demonstration data, which doesn't scale to new tasks.</p>
+              <p><span class="case-label">My contribution:</span> built the pipeline end-to-end, including the YouTube action-extraction step, the 19M-parameter temporal model, and the Indian-cooking dataset used to test generalization.</p>
+              <p><span class="case-label">Limitation:</span> accuracy drops on cuisines and actions underrepresented in training (60-70% zero-shot transfer to Western cuisine vs. 77-85% overall), so it's not yet robust to fully out-of-distribution tasks.</p>
+            </div>
+          </details>
+
           <div class="project-links">
             <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank">
               <i class="fab fa-github"></i> SOURCE_CODE
@@ -652,6 +683,15 @@
             <span>99.3-100% embodiment classification</span>
             <span>vs. 20% random-chance baseline</span>
           </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> visual representations trained around one robot's embodiment usually don't transfer to a robot with a different kinematic structure.</p>
+              <p><span class="case-label">My contribution:</span> designed and trained the cross-attention ViT and the 32-dim kinematic conditioning scheme.</p>
+              <p><span class="case-label">Limitation:</span> behavioral transfer, actual task success rates across robots, remains unproven due to rendering-environment constraints; the current evidence is representation quality, not closed-loop task performance.</p>
+            </div>
+          </details>
 
           <div class="project-links">
             <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank">
@@ -692,6 +732,15 @@
             <span>stable under 70-80N perturbation</span>
             <span>75%+ task success</span>
           </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> standard PD control for humanoid balance is energy-inefficient and struggles to recover from external perturbation.</p>
+              <p><span class="case-label">My contribution:</span> implemented the ZMP preview controller, A* footstep planner, and MPC balance optimization, then integrated RL-based locomotion with Jacobian IK for walk-and-reach tasks.</p>
+              <p><span class="case-label">Limitation:</span> validated in MuJoCo simulation only; not yet tested on physical hardware.</p>
+            </div>
+          </details>
 
           <div class="project-links">
             <a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank">
