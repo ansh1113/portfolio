@@ -1,39 +1,49 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ansh Bhansali | Autonomy Engineer</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Ansh Bhansali - Robotics Engineer specializing in VLA models, cross-embodiment learning, trajectory optimization, and safe autonomy. Master's in Robotics @ UIUC.">
   <meta name="keywords" content="robotics, VLA models, autonomous vehicles, trajectory optimization, humanoid robots, ROS2, vision-language-action, cross-embodiment learning">
   <meta name="author" content="Ansh Bhansali">
-  
+
   <!-- Open Graph tags for LinkedIn/social sharing -->
   <meta property="og:title" content="Ansh Bhansali | Autonomy Engineer">
   <meta property="og:description" content="Robotics Engineer building VLA models and cross-embodiment learning systems. Master's in Robotics @ UIUC.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://anshbhansali.com">
-  
+
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <script type="importmap">
-    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
   </script>
+
 </head>
+
 <body>
 
   <!-- BOOT SEQUENCE OVERLAY -->
   <div id="boot-screen">
     <div class="boot-content">
       <div class="boot-logo">&lt;AB /&gt;</div>
+
       <div class="boot-terminal">
         <p class="boot-line" data-delay="0">> INITIALIZING SYSTEM...</p>
         <p class="boot-line" data-delay="300">> LOADING AUTONOMY MODULES...</p>
@@ -41,6 +51,7 @@
         <p class="boot-line" data-delay="900">> ESTABLISHING NEURAL LINK...</p>
         <p class="boot-line success" data-delay="1200">> SYSTEM READY</p>
       </div>
+
       <div class="boot-progress">
         <div class="boot-progress-bar"></div>
       </div>
@@ -51,7 +62,7 @@
   <div class="cursor-outline" data-cursor-outline></div>
 
   <div id="bg-canvas-container"></div>
-  
+
   <!-- FLOATING PARTICLES CONTAINER -->
   <div id="particles-container"></div>
 
@@ -60,6 +71,7 @@
 
   <nav>
     <div class="logo">&lt;Ansh_Bhansali /&gt;</div>
+
     <div class="nav-links">
       <a href="#skills">01. SPECS</a>
       <a href="#experience">02. LOGS</a>
@@ -71,410 +83,1050 @@
 
   <header>
     <div class="header-content">
+
       <div class="text-zone">
+
         <div class="status-indicator">
           <span class="blink"></span> SYSTEM ONLINE // URBANA, IL
         </div>
-        <h1 class="hero-title">AUTONOMY <br><span class="highlight">ARCHITECT</span></h1>
-        
+
+        <h1 class="hero-title">
+          AUTONOMY <br>
+          <span class="highlight">ARCHITECT</span>
+        </h1>
+
         <div class="console-box">
-            <p class="console-text"><span class="prompt">></span> CURRENT_TASK: Master's_Robotics_UIUC</p>
-            <p class="console-text"><span class="prompt">></span> FOCUS: VLA Models, Cross-Embodiment Learning, Safe Trajectory Optimization</p>
-            <p class="console-text"><span class="prompt">></span> STATUS: Developing Intelligent Systems</p>
+          <p class="console-text">
+            <span class="prompt">></span>
+            Robotics Engineer @ AgRobotics | Robotics @ UIUC
+          </p>
+
+          <p class="console-text">
+            <span class="prompt">></span>
+            FOCUS: VLA Models, Cross-Embodiment Learning, Safe Trajectory Optimization
+          </p>
+
+          <p class="console-text">
+            <span class="prompt">></span>
+            STATUS: Developing Intelligent Systems
+          </p>
         </div>
 
         <div class="cta-group">
           <a href="#projects" class="btn primary">VIEW_PROJECTS</a>
-          <a href="Resume.pdf" target="_blank" class="btn secondary"><i class="fas fa-file-download"></i> RESUME_V3.0</a>
+
+          <a href="Resume.pdf" target="_blank" class="btn secondary">
+            <i class="fas fa-file-download"></i> RESUME_V3.0
+          </a>
         </div>
+
       </div>
+
       <!-- HUMANOID WIREFRAME CONTAINER (replaces globe) -->
       <div id="canvas-container"></div>
+
     </div>
   </header>
 
   <section id="skills">
-      <div class="section-header">
-          <span class="section-num">01</span>
-          <h2>SYSTEM_SPECIFICATIONS</h2>
-          <div class="line"></div>
+
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>SYSTEM_SPECIFICATIONS</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="skills-container">
+
+      <div class="skill-category">
+
+        <h3>
+          <i class="fas fa-robot"></i> AUTONOMY_STACK
+        </h3>
+
+        <div class="tag-list">
+          <span>ROS 2 / Nav2</span>
+          <span>SLAM (VINS-Fusion, ORB-SLAM3)</span>
+          <span>Motion Planning (MoveIt, OMPL, RRT*)</span>
+          <span>Trajectory Optimization (ProxQP, CHOMP)</span>
+          <span>A* Planning / Stanley Control</span>
+          <span>Sensor Fusion (Kalman Filters)</span>
+          <span>Control Barrier Functions (CBF)</span>
+        </div>
+
       </div>
-      <div class="skills-container">
-          <div class="skill-category">
-              <h3><i class="fas fa-robot"></i> AUTONOMY_STACK</h3>
-              <div class="tag-list">
-                  <span>ROS 2 / Nav2</span>
-                  <span>SLAM (VINS-Fusion, ORB-SLAM3)</span>
-                  <span>Motion Planning (MoveIt, OMPL, RRT*)</span>
-                  <span>Trajectory Optimization (ProxQP, CHOMP)</span>
-                  <span>A* Planning / Stanley Control</span>
-                  <span>Sensor Fusion (Kalman Filters)</span>
-                  <span>Control Barrier Functions (CBF)</span>
-              </div>
-          </div>
-          <div class="skill-category">
-              <h3><i class="fas fa-brain"></i> AI_&_PERCEPTION</h3>
-              <div class="tag-list">
-                  <span>VLA Models</span>
-                  <span>Vision-Language Models (GPT-4o)</span>
-                  <span>Vision Transformers (ViT, Cross-Attention)</span>
-                  <span>Transformers (CLIP, Whisper)</span>
-                  <span>Computer Vision (OpenCV, SAM, YOLO)</span>
-                  <span>Deep Learning (PyTorch, TensorFlow)</span>
-                  <span>Contrastive Learning</span>
-                  <span>Reinforcement Learning (PPO)</span>
-                  <span>6D Pose Estimation</span>
-                  <span>Point Cloud Processing</span>
-              </div>
-          </div>
-          <div class="skill-category">
-              <h3><i class="fas fa-microchip"></i> EMBEDDED_&_HW</h3>
-              <div class="tag-list">
-                  <span>Embedded C / C++ / Rust</span>
-                  <span>STM32 / ESP32 Firmware</span>
-                  <span>PCB Design (KiCad, Altium)</span>
-                  <span>Comms (I2C, SPI, UART, CAN, MAVLink)</span>
-                  <span>Fusion 360 / SolidWorks</span>
-              </div>
-          </div>
+
+      <div class="skill-category">
+
+        <h3>
+          <i class="fas fa-brain"></i> AI_&_PERCEPTION
+        </h3>
+
+        <div class="tag-list">
+          <span>VLA Models</span>
+          <span>Vision-Language Models (GPT-4o)</span>
+          <span>Vision Transformers (ViT, Cross-Attention)</span>
+          <span>Transformers (CLIP, Whisper)</span>
+          <span>Computer Vision (OpenCV, SAM, YOLO)</span>
+          <span>Deep Learning (PyTorch, TensorFlow)</span>
+          <span>Contrastive Learning</span>
+          <span>Reinforcement Learning (PPO)</span>
+          <span>6D Pose Estimation</span>
+          <span>Point Cloud Processing</span>
+        </div>
+
       </div>
+
+      <div class="skill-category">
+
+        <h3>
+          <i class="fas fa-microchip"></i> EMBEDDED_&_HW
+        </h3>
+
+        <div class="tag-list">
+          <span>Embedded C / C++ / Rust</span>
+          <span>STM32 / ESP32 Firmware</span>
+          <span>PCB Design (KiCad, Altium)</span>
+          <span>Comms (I2C, SPI, UART, CAN, MAVLink)</span>
+          <span>Fusion 360 / SolidWorks</span>
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <section id="experience">
-      <div class="section-header">
-          <span class="section-num">02</span>
-          <h2>MISSION_LOGS</h2>
-          <div class="line"></div>
-      </div>
-      <div class="timeline-grid">
-          <div class="timeline-col">
-              <h3 class="col-title"><i class="fas fa-briefcase"></i> RUNTIME_HISTORY (WORK)</h3>
-              <div class="log-entry">
-                  <div class="log-date">April 2026 - Present</div>
-                  <h4>Research Engineer</h4>
-                  <div class="log-loc">IHSI, University of Illinois, IL</div>
-                  <div class="log-project"><strong>Project:</strong> ARPA-H MarginDx, AI-Guided Robotic Microsurgery for Tumor Margin Assessment</div>
-                  <ul class="log-list">
-                      <li>Developing real-time impedance force control stack for KUKA LBR Med 7+pI hexapod achieving tissue contact regulation.</li>
-                      <li>Built multi-layer IPC architecture (Java/Python/UDP) bridging KUKA, PC backend, and hexapod with &lt;10ms command latency.</li>
-                      <li>Achieved 20µm resolution 3D tissue surface reconstruction with stable contact force during raster scans on tissue phantoms.</li>
-                  </ul>
-              </div>
-              <div class="log-entry">
-                  <div class="log-date">May 2024 - May 2025</div>
-                  <h4>Embedded Engineering Intern</h4>
-                  <div class="log-loc">Dimension Six Technologies, Mumbai</div>
-                  <div class="log-project"><strong>Project:</strong> STM32-based E-Bike Conversion Kit</div>
-                  <ul class="log-list">
-                      <li>Engineered production-ready firmware with battery management and regenerative braking, extending vehicle range by 40%.</li>
-                      <li>Designed a 4-layer PCB in KiCad for a custom ESC, optimizing power stage layout to reduce losses by 15% under peak load.</li>
-                      <li>Deployed IoT stack on ESP32S3 with RFID authentication, enabling remote monitoring and contactless payments over MQTT.</li>
-                  </ul>
-              </div>
-              <div class="log-entry">
-                  <div class="log-date">Jan 2024 - Jun 2024</div>
-                  <h4>Robotics Research Intern</h4>
-                  <div class="log-loc">IIT Bombay</div>
-                  <div class="log-project"><strong>Project:</strong> Autonomous Rugged Robot for Military Applications</div>
-                  <ul class="log-list">
-                      <li>Built SLAM-based autonomous navigation stack with path planning, achieving 95% accuracy in dynamic indoor environments.</li>
-                      <li>Fused IMU, GPS, and RGB-D camera data via Extended Kalman Filter, improving localization accuracy by 20%.</li>
-                      <li>Deployed YOLOv3 for real-time human detection and designed an adaptive gait controller for robust stair-climbing traversal.</li>
-                  </ul>
-              </div>
+
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>MISSION_LOGS</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline-grid">
+
+      <div class="timeline-col">
+
+        <h3 class="col-title">
+          <i class="fas fa-briefcase"></i> RUNTIME_HISTORY (WORK)
+        </h3>
+
+        <!-- AgRobotics -->
+        <div class="log-entry">
+          <div class="log-date">Aug 2026 - Present</div>
+
+          <h4>Robotics Engineering Intern</h4>
+
+          <div class="log-loc">
+            AgRobotics, Salinas, CA
           </div>
-          <div class="timeline-col">
-              <h3 class="col-title"><i class="fas fa-graduation-cap"></i> KERNEL_VERSIONS (EDUCATION)</h3>
-              <div class="log-entry">
-                  <div class="log-date">Aug 2025 - Present</div>
-                  <h4>Master's in Autonomy and Robotics</h4>
-                  <div class="log-loc">University of Illinois Urbana-Champaign</div>
-                  <ul class="log-list">
-                      <li><strong>Coursework:</strong> Humanoid Robots, Robot Planning, Control & Dynamics, Autonomous Systems, Computer Vision, Deep Learning</li>
-                      <li><strong>Key Lab Work:</strong> Working with humanoids, manipulators and GEM autonomous platforms.</li>
-                  </ul>
-              </div>
-              <div class="log-entry">
-                  <div class="log-date">Dec 2021 - Jun 2025</div>
-                  <h4>B.Tech. in Electronics & Telecom</h4>
-                  <div class="log-loc">Sardar Patel Institute of Technology</div>
-                  <ul class="log-list">
-                      <li>Specialization in Embedded Systems and Robotics.</li>
-                      <li>Minors in Management (S.P. Jain Institute).</li>
-                  </ul>
-              </div>
+
+          <ul class="log-list">
+            <li>
+              Robotics engineering for agricultural manipulation systems.
+            </li>
+          </ul>
+        </div>
+
+        <!-- IHSI -->
+        <div class="log-entry">
+
+          <div class="log-date">
+            April 2026 - Aug 2026
           </div>
+
+          <h4>Research Engineer</h4>
+
+          <div class="log-loc">
+            IHSI, University of Illinois, IL
+          </div>
+
+          <div class="log-project">
+            <strong>Project:</strong>
+            ARPA-H MarginDx, AI-Guided Robotic Microsurgery for Tumor Margin Assessment
+          </div>
+
+          <ul class="log-list">
+
+            <li>
+              Developing real-time impedance force control stack for KUKA LBR Med 7+pI hexapod achieving tissue contact regulation.
+            </li>
+
+            <li>
+              Built multi-layer IPC architecture (Java/Python/UDP) bridging KUKA, PC backend, and hexapod with &lt;10ms command latency.
+            </li>
+
+            <li>
+              Achieved 20µm resolution 3D tissue surface reconstruction with stable contact force during raster scans on tissue phantoms.
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- Dimension Six -->
+        <div class="log-entry">
+
+          <div class="log-date">
+            May 2024 - May 2025
+          </div>
+
+          <h4>
+            Embedded Engineering Intern
+          </h4>
+
+          <div class="log-loc">
+            Dimension Six Technologies, Mumbai
+          </div>
+
+          <div class="log-project">
+            <strong>Project:</strong>
+            STM32-based E-Bike Conversion Kit
+          </div>
+
+          <ul class="log-list">
+
+            <li>
+              Engineered production-ready firmware with battery management and regenerative braking, extending vehicle range by 40%.
+            </li>
+
+            <li>
+              Designed a 4-layer PCB in KiCad for a custom ESC, optimizing power stage layout to reduce losses by 15% under peak load.
+            </li>
+
+            <li>
+              Deployed IoT stack on ESP32S3 with RFID authentication, enabling remote monitoring and contactless payments over MQTT.
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- IIT Bombay -->
+        <div class="log-entry">
+
+          <div class="log-date">
+            Jan 2024 - Jun 2024
+          </div>
+
+          <h4>
+            Robotics Research Intern
+          </h4>
+
+          <div class="log-loc">
+            IIT Bombay
+          </div>
+
+          <div class="log-project">
+            <strong>Project:</strong>
+            Autonomous Rugged Robot for Military Applications
+          </div>
+
+          <ul class="log-list">
+
+            <li>
+              Built SLAM-based autonomous navigation stack with path planning, achieving 95% accuracy in dynamic indoor environments.
+            </li>
+
+            <li>
+              Fused IMU, GPS, and RGB-D camera data via Extended Kalman Filter, improving localization accuracy by 20%.
+            </li>
+
+            <li>
+              Deployed YOLOv3 for real-time human detection and designed an adaptive gait controller for robust stair-climbing traversal.
+            </li>
+
+          </ul>
+
+        </div>
+
       </div>
+
+      <div class="timeline-col">
+
+        <h3 class="col-title">
+          <i class="fas fa-graduation-cap"></i> KERNEL_VERSIONS (EDUCATION)
+        </h3>
+
+        <div class="log-entry">
+
+          <div class="log-date">
+            Aug 2025 - Present
+          </div>
+
+          <h4>
+            Master's in Autonomy and Robotics
+          </h4>
+
+          <div class="log-loc">
+            University of Illinois Urbana-Champaign
+          </div>
+
+          <ul class="log-list">
+
+            <li>
+              <strong>Coursework:</strong>
+              Humanoid Robots, Robot Planning, Control & Dynamics, Autonomous Systems, Computer Vision, Deep Learning
+            </li>
+
+            <li>
+              <strong>Key Lab Work:</strong>
+              Working with humanoids, manipulators and GEM autonomous platforms.
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="log-entry">
+
+          <div class="log-date">
+            Dec 2021 - Jun 2025
+          </div>
+
+          <h4>
+            B.Tech. in Electronics & Telecom
+          </h4>
+
+          <div class="log-loc">
+            Sardar Patel Institute of Technology
+          </div>
+
+          <ul class="log-list">
+
+            <li>
+              Specialization in Embedded Systems and Robotics.
+            </li>
+
+            <li>
+              Minors in Management (S.P. Jain Institute).
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <section id="projects">
+
     <div class="section-header">
       <span class="section-num">03</span>
       <h2>PROJECT_MODULES</h2>
       <div class="line"></div>
     </div>
+
     <div class="projects-grid">
 
-        <!-- NEW PROJECT 1: VLM Autonomous Navigation -->
-        <div class="project-card featured">
-          <div class="project-thumbnail">
-            <img src="vlm_nav_gem.gif" alt="VLM Navigation Demo" loading="lazy">
-            <div class="thumbnail-overlay">
-              <i class="fas fa-expand"></i>
-            </div>
+      <!-- VLM Autonomous Navigation -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="vlm_nav_gem.gif"
+            alt="VLM Navigation Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
           </div>
-          <div class="project-content">
-            <h3>VLM-Based Autonomous Navigation</h3>
-            <div class="tags">
-              <span class="tag">GPT-4o</span>
-              <span class="tag">ROS2</span>
-              <span class="tag">LiDAR-Camera Fusion</span>
-              <span class="tag">A* Planning</span>
-              <span class="tag">GEM e4</span>
-            </div>
-            <p class="project-desc">Intent-based autonomous navigation for GEM e4 using GPT-4o VLM. Built full pipeline: BEV perception, collision-free planning, Stanley control. Achieved 90% end-to-end task success and 88% accuracy on KITTI real-world dataset.</p>
-            <div class="project-links">
-              <a href="https://github.com/ansh1113/gem_vlm_navigation" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a>
-            </div>
-          </div>
+
         </div>
 
-        <!-- EXISTING PROJECT: VLA Kitchen Agent -->
-        <div class="project-card featured">
-          <div class="project-thumbnail">
-            <img src="vla.gif" alt="VLA Project Demo" loading="lazy">
-            <div class="thumbnail-overlay">
-              <i class="fas fa-expand"></i>
-            </div>
+        <div class="project-content">
+
+          <h3>
+            VLM-Based Autonomous Navigation
+          </h3>
+
+          <div class="tags">
+            <span class="tag">GPT-4o</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">LiDAR-Camera Fusion</span>
+            <span class="tag">A* Planning</span>
+            <span class="tag">GEM e4</span>
           </div>
-          <div class="project-content">
-            <h3>Vision-Language-Action System for Humanoid Manipulation</h3>
-            <div class="tags">
-              <span class="tag">Whisper</span>
-              <span class="tag">CLIP</span>
-              <span class="tag">GPT-4V</span>
-              <span class="tag">Transformer</span>
-              <span class="tag">AI2-THOR</span>
-            </div>
-            <p class="project-desc">Automated pipeline to label 1,607 clips from 72 YouTube videos. Trained 19M-param Temporal Transformer achieving 77-85% accuracy on unseen demos. Hierarchical mapping to robot primitives with YOLO fusion for disambiguation.</p>
-            <div class="project-links">
-              <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a>
-            </div>
+
+          <p class="project-desc">
+            Intent-based autonomous navigation for GEM e4 using GPT-4o VLM.
+            Built full pipeline: BEV perception, collision-free planning,
+            Stanley control. Achieved 90% end-to-end task success and
+            88% accuracy on KITTI real-world dataset.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/ansh1113/gem_vlm_navigation"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              SOURCE_CODE
+            </a>
           </div>
+
         </div>
 
-       <!-- EXISTING PROJECT: Humanoid Motion Planning -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="locomotion.gif" alt="Locomotion Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Humanoid Motion Planning</h3>
-                <div class="tags"><span class="tag">RL</span><span class="tag">ZMP</span><span class="tag">MPC</span></div>
-                <p class="project-desc">Implemented whole-body locomotion and motion planning for Unitree G1. Enforced ZMP control, MPC balance and RL locomotion for stable manipulation and reaching tasks.</p>
-                <div class="project-links"><a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
-            </div>
-        </div>
+      </div>
 
-        <!-- NEW PROJECT 2: CrossViT -->
-        <div class="project-card featured">
-          <div class="project-thumbnail">
-            <img src="crossvit_attention.png" alt="CrossViT Cross-Attention Maps" loading="lazy">
-            <div class="thumbnail-overlay">
-              <i class="fas fa-expand"></i>
-            </div>
+      <!-- VLA Kitchen Agent -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="vla.gif"
+            alt="VLA Project Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
           </div>
-          <div class="project-content">
-            <h3>CrossViT: Cross-Embodiment Visual Perception</h3>
-            <div class="tags">
-              <span class="tag">Vision Transformer</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Contrastive Learning</span>
-              <span class="tag">Cross-Attention</span>
-            </div>
-            <p class="project-desc">Trained cross-attention ViT conditioned on 32-dim kinematic features for embodiment-aware representations. Achieved 99.3-100% embodiment classification vs 20% baseline. Demonstrated zero-shot generalization to unseen humanoid robots.</p>
-            <div class="project-links">
-              <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a>
-            </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            Vision-Language-Action System for Humanoid Manipulation
+          </h3>
+
+          <div class="tags">
+            <span class="tag">Whisper</span>
+            <span class="tag">CLIP</span>
+            <span class="tag">GPT-4V</span>
+            <span class="tag">Transformer</span>
+            <span class="tag">AI2-THOR</span>
           </div>
-        </div>
 
-       <!-- EXISTING PROJECT: Pedestrian-Aware AV -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="AutoShield GEM.gif" alt="AutoShield Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Pedestrian-Aware AV Safety System</h3>
-                <div class="tags"><span class="tag">ROS2</span><span class="tag">YOLOv11</span><span class="tag">LiDAR</span><span class="tag">GEM e4</span></div>
-                <p class="project-desc">TTC-driven safety architecture. Fused LiDAR + RGB-D for pedestrian tracking with 90% success rate.</p>
-                <div class="project-links"><a href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
-            </div>
-        </div>
+          <p class="project-desc">
+            Automated pipeline to label 1,607 clips from 72 YouTube videos.
+            Trained 19M-param Temporal Transformer achieving 77-85% accuracy
+            on unseen demos. Hierarchical mapping to robot primitives with
+            YOLO fusion for disambiguation.
+          </p>
 
-        <!-- NEW PROJECT 3: O-VLA Trajectory Optimization -->
-        <div class="project-card featured">
-          <div class="project-thumbnail">
-            <img src="ovla_trajectory.png" alt="O-VLA Trajectory Optimization" loading="lazy">
-            <div class="thumbnail-overlay">
-              <i class="fas fa-expand"></i>
-            </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              SOURCE_CODE
+            </a>
           </div>
-          <div class="project-content">
-            <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
-            <div class="tags">
-              <span class="tag">ProxQP</span>
-              <span class="tag">CHOMP</span>
-              <span class="tag">RNEA</span>
-              <span class="tag">Pinocchio</span>
-            </div>
-            <p class="project-desc">Morphology-agnostic trajectory optimizer transforming unsafe VLA outputs into collision-free paths. Achieved 100% constraint satisfaction and 60-100% collision reduction across 5 robot morphologies (6-23 DOF) in 0.03-0.44s.</p>
-            <div class="project-links">
-              <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a>
-            </div>
+
+        </div>
+
+      </div>
+
+      <!-- Humanoid Motion Planning -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="locomotion.gif"
+            alt="Locomotion Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
           </div>
+
         </div>
 
+        <div class="project-content">
 
-       <!-- EXISTING PROJECT: 6D Pose Estimation -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="6d.jpg" alt="6D Pose Estimation Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Open-Vocabulary 6D Pose Estimation</h3>
-                <div class="tags"><span class="tag">FoundationPose</span><span class="tag">SAM-3</span><span class="tag">Moondream2</span></div>
-                <p class="project-desc">Zero-shot 6D tracking architecture with VLM-based semantic inventory. Achieved 76.5-100% ADD-S AUC on YCB-Video.</p>
-                <div class="project-links"><a href="https://drive.google.com/file/d/1Yu5WMHfaZ5Z92mDNHLYira6MxSrRKHLw/view?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> VIEW_REPORT</a></div>
-            </div>
-        </div>
+          <h3>
+            Humanoid Motion Planning
+          </h3>
 
-       <!-- EXISTING PROJECT: Dynamic Handover -->
-        <div class="project-card featured">
-            <div class="project-thumbnail">
-                <img src="ECE598JK_demo.gif" alt="Dynamic Handover Demo" loading="lazy">
-                <div class="thumbnail-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-            <div class="project-content">
-                <h3>Dynamic Object Handover System</h3>
-                <div class="tags"><span class="tag">MuJoCo</span><span class="tag">MediaPipe</span><span class="tag">ROBOTIS AI Worker</span></div>
-                <p class="project-desc">Vision-based HRI with real-time hand tracking. Robot adapts to human position for seamless object transfer.</p>
-                <div class="project-links"><a href="https://drive.google.com/file/d/1tCAbUo4cCS2Kb3jpLjC38qfcXcKnx5T1/view?usp=sharing" target="_blank"><i class="fas fa-play-circle"></i> WATCH_DEMO</a></div>
-            </div>
-        </div>
-
-        <!-- EXISTING SMALLER PROJECTS -->
-        <div class="project-card">
-            <h3>Terrain-Aware Navigation</h3>
-            <div class="tags"><span class="tag">Elevation Mapping</span><span class="tag">ROS2</span></div>
-            <p class="project-desc">Developed a perception pipeline converting depth clouds to elevation maps for quadruped footstep placement.</p>
-            <div class="project-links"><a href="https://github.com/ansh1113/Terrain-Aware-Locomotion-Pipeline-" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
-        </div>
-        <div class="project-card">
-            <h3>RL Locomotion + Safety</h3>
-            <div class="tags"><span class="tag">PPO</span><span class="tag">Control Barrier Functions</span></div>
-            <p class="project-desc">Trained terrain-adaptive locomotion with PPO and integrated CBF as a real-time safety filter. Achieved zero-fall locomotion with 99% unsafe action rejection.</p>
-            <div class="project-links"><a href="https://github.com/ansh1113/RL-Locomotion-with-Safety-Layer" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
-        </div>
-        <div class="project-card">
-            <h3>Quadruped Locomotion (RL)</h3>
-            <div class="tags"><span class="tag">PPO</span><span class="tag">Isaac Gym</span><span class="tag">Python</span></div>
-            <p class="project-desc">Trained ANYmal quadruped policies using Proximal Policy Optimization. Achieved robust traversal on irregular terrain with 0-fall safety constraints.</p>
-            <div class="project-links"><a href="https://github.com/ansh1113/Quadruped-Locomotion-via-PPO" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
-        </div>
-        <div class="project-card">
-            <h3>VIO + Footstep Planning</h3>
-            <div class="tags"><span class="tag">ROS2</span><span class="tag">VINS-Fusion</span><span class="tag">Nav2</span></div>
-            <p class="project-desc">Fused Visual-Inertial Odometry with footstep planning. Enabled autonomous navigation in GPS-denied environments with <10cm drift.</p>
-            <div class="project-links"><a href="https://github.com/ansh1113/VIO-Footstep-Planner-Fusion" target="_blank"><i class="fab fa-github"></i> SOURCE_CODE</a></div>
-        </div>
-        <div class="project-card">
-            <div class="project-thumbnail">
-              <img src="emg.gif" alt="EMG Prosthetic Arm Demo" loading="lazy">
-              <div class="thumbnail-overlay">
-                <i class="fas fa-expand"></i>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>EMG-Controlled Prosthetic Arm</h3>
-              <div class="tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">TinyML</span>
-                <span class="tag">Fusion 360</span>
-                <span class="tag">XGBoost</span>
-              </div>
-              <p class="project-desc">Built a 5-DOF prosthetic arm controlled via EMG signals. Deployed real-time gesture classification on ESP32 using XGBoost, achieving 96% accuracy.</p>
-              <div class="project-links">
-                <a href="https://www.youtube.com/shorts/bR4iVEo-3-U" target="_blank"><i class="fab fa-youtube"></i> WATCH_DEMO</a>
-              </div>
-            </div>
+          <div class="tags">
+            <span class="tag">RL</span>
+            <span class="tag">ZMP</span>
+            <span class="tag">MPC</span>
           </div>
+
+          <p class="project-desc">
+            Implemented whole-body locomotion and motion planning for Unitree G1.
+            Enforced ZMP control, MPC balance and RL locomotion for stable
+            manipulation and reaching tasks.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/ansh1113/Humanoid-Motion-Planning"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CrossViT -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="crossvit_attention.png"
+            alt="CrossViT Cross-Attention Maps"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            CrossViT: Cross-Embodiment Visual Perception
+          </h3>
+
+          <div class="tags">
+            <span class="tag">Vision Transformer</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Contrastive Learning</span>
+            <span class="tag">Cross-Attention</span>
+          </div>
+
+          <p class="project-desc">
+            Trained cross-attention ViT conditioned on 32-dim kinematic features
+            for embodiment-aware representations. Achieved 99.3-100%
+            embodiment classification vs 20% baseline. Demonstrated zero-shot
+            generalization to unseen humanoid robots.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/ansh1113/crossvit-cross-embodiment"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Pedestrian-Aware AV -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="AutoShield GEM.gif"
+            alt="AutoShield Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            Pedestrian-Aware AV Safety System
+          </h3>
+
+          <div class="tags">
+            <span class="tag">ROS2</span>
+            <span class="tag">YOLOv11</span>
+            <span class="tag">LiDAR</span>
+            <span class="tag">GEM e4</span>
+          </div>
+
+          <p class="project-desc">
+            TTC-driven safety architecture. Fused LiDAR + RGB-D for pedestrian
+            tracking with 90% success rate.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://drive.google.com/file/d/18BvGd55jrYOIiacmfhde1NESfNh22PKZ/view?usp=drive_link"
+              target="_blank"
+            >
+              <i class="fas fa-play-circle"></i>
+              WATCH_DEMO
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- O-VLA -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="ovla_trajectory.png"
+            alt="O-VLA Trajectory Optimization"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            O-VLA: Trajectory Optimization Safety Layer
+          </h3>
+
+          <div class="tags">
+            <span class="tag">ProxQP</span>
+            <span class="tag">CHOMP</span>
+            <span class="tag">RNEA</span>
+            <span class="tag">Pinocchio</span>
+          </div>
+
+          <p class="project-desc">
+            Morphology-agnostic trajectory optimizer transforming unsafe VLA
+            outputs into collision-free paths. Achieved 100% constraint
+            satisfaction and 60-100% collision reduction across 5 robot
+            morphologies (6-23 DOF) in 0.03-0.44s.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/ansh1113/VLA-Optimization"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i>
+              SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 6D Pose Estimation -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="6d.jpg"
+            alt="6D Pose Estimation Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            Open-Vocabulary 6D Pose Estimation
+          </h3>
+
+          <div class="tags">
+            <span class="tag">FoundationPose</span>
+            <span class="tag">SAM-3</span>
+            <span class="tag">Moondream2</span>
+          </div>
+
+          <p class="project-desc">
+            Zero-shot 6D tracking architecture with VLM-based semantic inventory.
+            Achieved 76.5-100% ADD-S AUC on YCB-Video.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://drive.google.com/file/d/1Yu5WMHfaZ5Z92mDNHLYira6MxSrRKHLw/view?usp=sharing"
+              target="_blank"
+            >
+              <i class="fas fa-file-alt"></i>
+              VIEW_REPORT
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Dynamic Handover -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="ECE598JK_demo.gif"
+            alt="Dynamic Handover Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            Dynamic Object Handover System
+          </h3>
+
+          <div class="tags">
+            <span class="tag">MuJoCo</span>
+            <span class="tag">MediaPipe</span>
+            <span class="tag">ROBOTIS AI Worker</span>
+          </div>
+
+          <p class="project-desc">
+            Vision-based HRI with real-time hand tracking. Robot adapts to human
+            position for seamless object transfer.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://drive.google.com/file/d/1tCAbUo4cCS2Kb3jpLjC38qfcXcKnx5T1/view?usp=sharing"
+              target="_blank"
+            >
+              <i class="fas fa-play-circle"></i>
+              WATCH_DEMO
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Smaller Projects -->
+
+      <div class="project-card">
+
+        <h3>
+          Terrain-Aware Navigation
+        </h3>
+
+        <div class="tags">
+          <span class="tag">Elevation Mapping</span>
+          <span class="tag">ROS2</span>
+        </div>
+
+        <p class="project-desc">
+          Developed a perception pipeline converting depth clouds to elevation
+          maps for quadruped footstep placement.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://github.com/ansh1113/Terrain-Aware-Locomotion-Pipeline-"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            SOURCE_CODE
+          </a>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>
+          RL Locomotion + Safety
+        </h3>
+
+        <div class="tags">
+          <span class="tag">PPO</span>
+          <span class="tag">Control Barrier Functions</span>
+        </div>
+
+        <p class="project-desc">
+          Trained terrain-adaptive locomotion with PPO and integrated CBF as a
+          real-time safety filter. Achieved zero-fall locomotion with 99% unsafe
+          action rejection.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://github.com/ansh1113/RL-Locomotion-with-Safety-Layer"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            SOURCE_CODE
+          </a>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>
+          Quadruped Locomotion (RL)
+        </h3>
+
+        <div class="tags">
+          <span class="tag">PPO</span>
+          <span class="tag">Isaac Gym</span>
+          <span class="tag">Python</span>
+        </div>
+
+        <p class="project-desc">
+          Trained ANYmal quadruped policies using Proximal Policy Optimization.
+          Achieved robust traversal on irregular terrain with 0-fall safety
+          constraints.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://github.com/ansh1113/Quadruped-Locomotion-via-PPO"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            SOURCE_CODE
+          </a>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>
+          VIO + Footstep Planning
+        </h3>
+
+        <div class="tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">VINS-Fusion</span>
+          <span class="tag">Nav2</span>
+        </div>
+
+        <p class="project-desc">
+          Fused Visual-Inertial Odometry with footstep planning. Enabled
+          autonomous navigation in GPS-denied environments with &lt;10cm drift.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://github.com/ansh1113/VIO-Footstep-Planner-Fusion"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            SOURCE_CODE
+          </a>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-thumbnail">
+
+          <img
+            src="emg.gif"
+            alt="EMG Prosthetic Arm Demo"
+            loading="lazy"
+          >
+
+          <div class="thumbnail-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+
+        </div>
+
+        <div class="project-content">
+
+          <h3>
+            EMG-Controlled Prosthetic Arm
+          </h3>
+
+          <div class="tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">TinyML</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">XGBoost</span>
+          </div>
+
+          <p class="project-desc">
+            Built a 5-DOF prosthetic arm controlled via EMG signals. Deployed
+            real-time gesture classification on ESP32 using XGBoost, achieving
+            96% accuracy.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://www.youtube.com/shorts/bR4iVEo-3-U"
+              target="_blank"
+            >
+              <i class="fab fa-youtube"></i>
+              WATCH_DEMO
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
   </section>
 
   <section id="vision">
+
     <div class="section-header">
-        <span class="section-num">04</span>
-        <h2>VISION_PROTOCOL</h2>
-        <div class="line"></div>
+      <span class="section-num">04</span>
+      <h2>VISION_PROTOCOL</h2>
+      <div class="line"></div>
     </div>
+
     <div class="vision-container">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="buttons"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-                <span class="title">vision.md</span>
-            </div>
-            <div class="terminal-body" id="typewriter-text">
-                <p><span class="prompt">></span> <span class="comment"># WHAT I'M BUILDING TOWARD</span></p>
-                <p>Robots that learn tasks from watching humans, then execute them safely in the real world.</p>
-                <br>
-                <p><span class="prompt">></span> <span class="comment"># CURRENT FOCUS</span></p>
-                <p>Building <strong>cross-embodiment learning systems</strong> that enable vision-language-action models to transfer across robot morphologies. Combining <strong>trajectory optimization safety layers</strong> with <strong>kinematic-conditioned visual representations</strong> to bridge internet-scale knowledge and physical manipulation.</p>
-                <br>
-                <p><span class="prompt">></span> <span class="comment"># THE BIGGER PICTURE</span></p>
-                <p>General-purpose robots need a <strong>skill layer</strong> - modular, verifiable behaviors that can be composed, transferred, and deployed across platforms. I'm focused on making that layer <strong>learnable from real-world data</strong>, <strong>morphology-agnostic</strong>, and <strong>safe by construction</strong>, using physics-based optimization and control-theoretic safety guarantees.</p>
-            </div>
+
+      <div class="terminal-window">
+
+        <div class="terminal-header">
+
+          <div class="buttons">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+
+          <span class="title">
+            vision.md
+          </span>
+
         </div>
+
+        <div
+          class="terminal-body"
+          id="typewriter-text"
+        >
+
+          <p>
+            <span class="prompt">></span>
+            <span class="comment"># WHAT I'M BUILDING TOWARD</span>
+          </p>
+
+          <p>
+            Robots that learn tasks from watching humans, then execute them safely
+            in the real world.
+          </p>
+
+          <br>
+
+          <p>
+            <span class="prompt">></span>
+            <span class="comment"># CURRENT FOCUS</span>
+          </p>
+
+          <p>
+            Building <strong>cross-embodiment learning systems</strong> that
+            enable vision-language-action models to transfer across robot
+            morphologies. Combining
+            <strong>trajectory optimization safety layers</strong> with
+            <strong>kinematic-conditioned visual representations</strong> to
+            bridge internet-scale knowledge and physical manipulation.
+          </p>
+
+          <br>
+
+          <p>
+            <span class="prompt">></span>
+            <span class="comment"># THE BIGGER PICTURE</span>
+          </p>
+
+          <p>
+            General-purpose robots need a <strong>skill layer</strong> - modular,
+            verifiable behaviors that can be composed, transferred, and deployed
+            across platforms. I'm focused on making that layer
+            <strong>learnable from real-world data</strong>,
+            <strong>morphology-agnostic</strong>, and
+            <strong>safe by construction</strong>, using physics-based
+            optimization and control-theoretic safety guarantees.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
-</section>
+
+  </section>
 
   <section id="contact">
-      <div class="section-header">
-          <span class="section-num">05</span>
-          <h2>ESTABLISH_UPLINK</h2>
-          <div class="line"></div>
-      </div>
-      <div class="contact-grid">
-          <a href="mailto:anshbhansali5@gmail.com" class="contact-card">
-              <i class="fas fa-envelope"></i>
-              <span>EMAIL_TRANSMISSION</span>
-          </a>
-          <a href="https://www.linkedin.com/in/anshbhansali/" target="_blank" class="contact-card">
-              <i class="fab fa-linkedin"></i>
-              <span>LINKEDIN_NETWORK</span>
-          </a>
-          <a href="https://github.com/ansh1113" target="_blank" class="contact-card">
-              <i class="fab fa-github"></i>
-              <span>GITHUB_REPO</span>
-          </a>
-      </div>
+
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>ESTABLISH_UPLINK</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="contact-grid">
+
+      <a
+        href="mailto:anshbhansali5@gmail.com"
+        class="contact-card"
+      >
+        <i class="fas fa-envelope"></i>
+        <span>EMAIL_TRANSMISSION</span>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/anshbhansali/"
+        target="_blank"
+        class="contact-card"
+      >
+        <i class="fab fa-linkedin"></i>
+        <span>LINKEDIN_NETWORK</span>
+      </a>
+
+      <a
+        href="https://github.com/ansh1113"
+        target="_blank"
+        class="contact-card"
+      >
+        <i class="fab fa-github"></i>
+        <span>GITHUB_REPO</span>
+      </a>
+
+    </div>
+
   </section>
 
   <footer>
-      <p>SYSTEM_ID: ANSH_BHANSALI // END_OF_LINE</p>
+    <p>
+      SYSTEM_ID: ANSH_BHANSALI // END_OF_LINE
+    </p>
   </footer>
 
-  <script type="module" src="script.js"></script>
+  <script
+    type="module"
+    src="script.js"
+  ></script>
+
 </body>
 </html>
