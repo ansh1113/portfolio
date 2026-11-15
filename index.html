@@ -239,10 +239,43 @@
             AgRobotics, Salinas, CA
           </div>
 
+          <div class="log-project">
+            <strong>Project:</strong>
+            Manipulation and Navigation for Agriculture Robots
+          </div>
+
           <ul class="log-list">
+
             <li>
-              Robotics engineering for agricultural manipulation and navigation systems.
+              Deploying a fine-tuned pi0.7 VLA policy on a bi-manual harvesting robot,
+              trained on 400+ hours of teleop data.
             </li>
+
+            <li>
+              Implemented dual-arm, collision-aware motion planning with Pinocchio and
+              RRT, avoiding inter-arm collisions in real time.
+            </li>
+
+            <li>
+              Built a DAgger pipeline for policy improvement, collecting teleop demos via
+              GELLO in Parquet format.
+            </li>
+
+            <li>
+              Built an autonomous navigation stack using the ZED SDK for in-furrow
+              tracking, row-switching, and U-turns on farm terrain.
+            </li>
+
+            <li>
+              Built a berry perception module with a spatial dictionary and pair selector,
+              integrating fine-tuned YOLO detection.
+            </li>
+
+            <li>
+              Created a simulation environment in Isaac Sim &amp; Gazebo replicating the full
+              robot and autonomy stack for testing.
+            </li>
+
           </ul>
         </div>
 
@@ -456,11 +489,11 @@
     </p>
 
     <div class="core-strengths">
-      <span><i class="fas fa-brain"></i> Robot Learning (VLA / RL)</span>
+      <span><i class="fas fa-brain"></i> Robot Learning (VLA / IL / RL)</span>
       <span><i class="fas fa-robot"></i> Motion Planning &amp; Control</span>
       <span><i class="fas fa-eye"></i> Perception &amp; Sensor Fusion</span>
       <span><i class="fas fa-cube"></i> Simulation &amp; Sim-to-Real</span>
-      <span><i class="fas fa-microchip"></i> Embedded Systems</span>
+      <span><i class="fas fa-hand"></i> Manipulation</span>
     </div>
 
     <div class="skills-container">
@@ -475,6 +508,9 @@
           <span>Contrastive Learning</span>
           <span>Reinforcement Learning (PPO)</span>
           <span>Imitation Learning</span>
+          <span>Diffusion Policy / ACT</span>
+          <span>DAgger</span>
+          <span>pi0 VLA Fine-Tuning</span>
           <span>Foundation Models</span>
           <span>PyTorch / TensorFlow</span>
         </div>
@@ -484,6 +520,9 @@
         <h3><i class="fas fa-robot"></i> AUTONOMY_&_CONTROL</h3>
         <div class="tag-list">
           <span>Motion Planning / Path Planning</span>
+          <span>Dual-Arm Collision-Aware Planning (RRT)</span>
+          <span>Teleoperation (GELLO)</span>
+          <span>Capture-Point Balance Control</span>
           <span>Trajectory Optimization</span>
           <span>MPC / ZMP Control</span>
           <span>Control Barrier Functions</span>
@@ -499,6 +538,7 @@
         <div class="tag-list">
           <span>Computer Vision (YOLO, SAM)</span>
           <span>6D Pose Estimation</span>
+          <span>ZED SDK / Stereo Depth</span>
           <span>LiDAR / Point Cloud Processing</span>
           <span>LiDAR-Camera Fusion</span>
           <span>BEV Perception</span>
@@ -518,6 +558,8 @@
           <span>PyBullet</span>
           <span>AI2-THOR</span>
           <span>Pinocchio</span>
+          <span>ONNX / onnxruntime-web</span>
+          <span>MuJoCo WASM / three.js</span>
           <span>Linux / Git</span>
           <span>Real-Time Systems</span>
           <span>Sim-to-Real / Hardware Validation</span>
@@ -746,6 +788,89 @@
             </a>
           </div>
 
+        </div>
+      </div>
+
+      <!-- Diffusion Pick -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="diffusion_pick.gif" alt="Diffusion Policy Pick-and-Place Demo" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Pixel Diffusion Policy for Pick-and-Place</h3>
+
+          <div class="tags">
+            <span class="tag">Diffusion Policy</span>
+            <span class="tag">ResNet18</span>
+            <span class="tag">DDIM</span>
+            <span class="tag">MuJoCo</span>
+            <span class="tag">ONNX</span>
+          </div>
+
+          <p class="project-desc">
+            Imitation learning from pixels on a MuJoCo Franka Panda: a CNN Diffusion
+            Policy trained on 200 scripted-expert demos from RGB (wrist + front) and
+            proprioception only, benchmarked against an ACT baseline and exported to ONNX.
+          </p>
+
+          <div class="metric-row">
+            <span>95% pick success (vs. 76% ACT)</span>
+            <span>90-93% under distractors, lighting, camera shift</span>
+            <span>100 randomized test rollouts</span>
+          </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> the v1 policy hit 87% nominally but couldn't recover from a missed grasp and dropped to 67% under distractors and lighting changes.</p>
+              <p><span class="case-label">My contribution:</span> diagnosed the failure modes, added 100 recovery demos from a perturbation expert (with the mistake actions masked out of training) plus train-time distractors and photometric augmentation, and ran ablations with paired McNemar tests on identical seeds.</p>
+              <p><span class="case-label">Finding:</span> recovery data was the biggest win on its own; augmentation only helped on top of it, and alone it cut nominal success from 87% to 57%.</p>
+            </div>
+          </details>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/diffusion-pick" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MuJoCo Web Demo -->
+      <div class="project-card">
+
+        <div class="project-thumbnail">
+          <img src="mujoco_web_demo.jpg" alt="MuJoCo Web Demo: Unitree G1 Balance" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>In-Browser MuJoCo Robotics Demos</h3>
+
+          <div class="tags">
+            <span class="tag">MuJoCo WASM</span>
+            <span class="tag">onnxruntime-web</span>
+            <span class="tag">three.js</span>
+          </div>
+
+          <p class="project-desc">
+            MuJoCo running fully in the browser: a Unitree G1 you can shove while a
+            capture-point balance controller keeps it standing (250N forward push vs.
+            50N for bare servos), and a Franka pick-and-place driven live by the
+            diffusion-pick ONNX policy.
+          </p>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/mujoco-web-demo" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
         </div>
       </div>
 
