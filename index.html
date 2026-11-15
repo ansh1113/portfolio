@@ -612,151 +612,6 @@
 
     <div class="projects-grid">
 
-      <!-- O-VLA -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="ovla_trajectory.png" alt="O-VLA Trajectory Optimization" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
-
-          <div class="tags">
-            <span class="tag">ProxQP</span>
-            <span class="tag">CHOMP</span>
-            <span class="tag">RNEA</span>
-            <span class="tag">Pinocchio</span>
-          </div>
-
-          <p class="project-desc">
-            A morphology-agnostic optimizer that turns unsafe VLA-generated trajectories
-            into collision-free, constraint-satisfying motion across 5 robot morphologies
-            (6-23 DOF), in 0.03-0.44s per trajectory.
-          </p>
-
-          <div class="metric-row">
-            <span>100% constraint satisfaction</span>
-            <span>60-100% collision reduction</span>
-            <span>34-45% lower energy via RNEA</span>
-          </div>
-
-          <details class="case-study">
-            <summary>CASE_STUDY</summary>
-            <div class="case-study-body">
-              <p><span class="case-label">Problem:</span> VLA policies can output trajectories that violate joint limits or collide with the environment, and those failure modes don't transfer cleanly across robots with different kinematics.</p>
-              <p><span class="case-label">My contribution:</span> Built the full optimization layer, including a fast hierarchical approach (ProxQP + CHOMP) and a slower coupled-dynamics approach using Pinocchio RNEA.</p>
-              <p><span class="case-label">Trade-off:</span> the coupled-dynamics formulation gets better energy results but is meaningfully slower than the hierarchical approach, so the right choice depends on the latency budget.</p>
-            </div>
-          </details>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- VLA Kitchen Agent -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="vla.gif" alt="VLA Project Demo" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Vision-Language-Action System for Manipulation</h3>
-
-          <div class="tags">
-            <span class="tag">Whisper</span>
-            <span class="tag">CLIP</span>
-            <span class="tag">GPT-4V</span>
-            <span class="tag">Transformer</span>
-          </div>
-
-          <p class="project-desc">
-            An end-to-end pipeline that extracts actions from unconstrained cooking
-            videos and maps them to robot primitives. Trained a 19M-parameter temporal
-            model on 1.6k+ clips, including a novel Indian-cooking dataset.
-          </p>
-
-          <div class="metric-row">
-            <span>77-85% action accuracy</span>
-            <span>60-70% zero-shot transfer</span>
-            <span>85-90% success in AI2-THOR</span>
-          </div>
-
-          <details class="case-study">
-            <summary>CASE_STUDY</summary>
-            <div class="case-study-body">
-              <p><span class="case-label">Problem:</span> teaching a robot new manipulation skills usually means collecting robot-specific demonstration data, which doesn't scale to new tasks.</p>
-              <p><span class="case-label">My contribution:</span> built the pipeline end-to-end, including the YouTube action-extraction step, the 19M-parameter temporal model, and the Indian-cooking dataset used to test generalization.</p>
-              <p><span class="case-label">Limitation:</span> accuracy drops on cuisines and actions underrepresented in training (60-70% zero-shot transfer to Western cuisine vs. 77-85% overall), so it's not yet robust to fully out-of-distribution tasks.</p>
-            </div>
-          </details>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- CrossViT -->
-      <div class="project-card featured">
-
-        <div class="project-thumbnail">
-          <img src="crossvit_attention.png" alt="CrossViT Cross-Attention Maps" loading="lazy">
-          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="project-content">
-
-          <h3>Cross-Embodiment Robot Perception</h3>
-
-          <div class="tags">
-            <span class="tag">Vision Transformer</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Contrastive Learning</span>
-          </div>
-
-          <p class="project-desc">
-            A cross-attention ViT conditioned on 32-dim kinematic features, producing
-            embodiment-aware representations that generalize to unseen humanoid robots
-            with morphologically meaningful embedding structure.
-          </p>
-
-          <div class="metric-row">
-            <span>99.3-100% embodiment classification</span>
-            <span>vs. 20% random-chance baseline</span>
-          </div>
-
-          <details class="case-study">
-            <summary>CASE_STUDY</summary>
-            <div class="case-study-body">
-              <p><span class="case-label">Problem:</span> visual representations trained around one robot's embodiment usually don't transfer to a robot with a different kinematic structure.</p>
-              <p><span class="case-label">My contribution:</span> designed and trained the cross-attention ViT and the 32-dim kinematic conditioning scheme.</p>
-              <p><span class="case-label">Limitation:</span> behavioral transfer, actual task success rates across robots, remains unproven due to rendering-environment constraints; the current evidence is representation quality, not closed-loop task performance.</p>
-            </div>
-          </details>
-
-          <div class="project-links">
-            <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank">
-              <i class="fab fa-github"></i> SOURCE_CODE
-            </a>
-          </div>
-
-        </div>
-      </div>
-
       <!-- Humanoid Motion Planning -->
       <div class="project-card featured">
 
@@ -799,6 +654,55 @@
 
           <div class="project-links">
             <a href="https://github.com/ansh1113/Humanoid-Motion-Planning" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- O-VLA -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="ovla_trajectory.png" alt="O-VLA Trajectory Optimization" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>O-VLA: Trajectory Optimization Safety Layer</h3>
+
+          <div class="tags">
+            <span class="tag">ProxQP</span>
+            <span class="tag">CHOMP</span>
+            <span class="tag">RNEA</span>
+            <span class="tag">Pinocchio</span>
+          </div>
+
+          <p class="project-desc">
+            A morphology-agnostic optimizer that turns unsafe VLA-generated trajectories
+            into collision-free, constraint-satisfying motion across 5 robot morphologies
+            (6-23 DOF), in 0.03-0.44s per trajectory.
+          </p>
+
+          <div class="metric-row">
+            <span>100% constraint satisfaction</span>
+            <span>60-100% collision reduction</span>
+            <span>34-45% lower energy via RNEA</span>
+          </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> VLA policies can output trajectories that violate joint limits or collide with the environment, and those failure modes don't transfer cleanly across robots with different kinematics.</p>
+              <p><span class="case-label">My contribution:</span> Built the full optimization layer, including a fast hierarchical approach (ProxQP + CHOMP) and a slower coupled-dynamics approach using Pinocchio RNEA.</p>
+              <p><span class="case-label">Trade-off:</span> the coupled-dynamics formulation gets better energy results but is meaningfully slower than the hierarchical approach, so the right choice depends on the latency budget.</p>
+            </div>
+          </details>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/VLA-Optimization" target="_blank">
               <i class="fab fa-github"></i> SOURCE_CODE
             </a>
           </div>
@@ -886,6 +790,55 @@
               <i class="fab fa-github"></i> SOURCE_CODE
             </a>
           </div>
+        </div>
+      </div>
+
+      <!-- VLA Kitchen Agent -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="vla.gif" alt="VLA Project Demo" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Vision-Language-Action System for Manipulation</h3>
+
+          <div class="tags">
+            <span class="tag">Whisper</span>
+            <span class="tag">CLIP</span>
+            <span class="tag">GPT-4V</span>
+            <span class="tag">Transformer</span>
+          </div>
+
+          <p class="project-desc">
+            An end-to-end pipeline that extracts actions from unconstrained cooking
+            videos and maps them to robot primitives. Trained a 19M-parameter temporal
+            model on 1.6k+ clips, including a novel Indian-cooking dataset.
+          </p>
+
+          <div class="metric-row">
+            <span>77-85% action accuracy</span>
+            <span>60-70% zero-shot transfer</span>
+            <span>85-90% success in AI2-THOR</span>
+          </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> teaching a robot new manipulation skills usually means collecting robot-specific demonstration data, which doesn't scale to new tasks.</p>
+              <p><span class="case-label">My contribution:</span> built the pipeline end-to-end, including the YouTube action-extraction step, the 19M-parameter temporal model, and the Indian-cooking dataset used to test generalization.</p>
+              <p><span class="case-label">Limitation:</span> accuracy drops on cuisines and actions underrepresented in training (60-70% zero-shot transfer to Western cuisine vs. 77-85% overall), so it's not yet robust to fully out-of-distribution tasks.</p>
+            </div>
+          </details>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/cooking-humanoid-vla/tree/main" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -984,6 +937,53 @@
         </div>
       </div>
 
+      <!-- CrossViT -->
+      <div class="project-card featured">
+
+        <div class="project-thumbnail">
+          <img src="crossvit_attention.png" alt="CrossViT Cross-Attention Maps" loading="lazy">
+          <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+
+        <div class="project-content">
+
+          <h3>Cross-Embodiment Robot Perception</h3>
+
+          <div class="tags">
+            <span class="tag">Vision Transformer</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Contrastive Learning</span>
+          </div>
+
+          <p class="project-desc">
+            A cross-attention ViT conditioned on 32-dim kinematic features, producing
+            embodiment-aware representations that generalize to unseen humanoid robots
+            with morphologically meaningful embedding structure.
+          </p>
+
+          <div class="metric-row">
+            <span>99.3-100% embodiment classification</span>
+            <span>vs. 20% random-chance baseline</span>
+          </div>
+
+          <details class="case-study">
+            <summary>CASE_STUDY</summary>
+            <div class="case-study-body">
+              <p><span class="case-label">Problem:</span> visual representations trained around one robot's embodiment usually don't transfer to a robot with a different kinematic structure.</p>
+              <p><span class="case-label">My contribution:</span> designed and trained the cross-attention ViT and the 32-dim kinematic conditioning scheme.</p>
+              <p><span class="case-label">Limitation:</span> behavioral transfer, actual task success rates across robots, remains unproven due to rendering-environment constraints; the current evidence is representation quality, not closed-loop task performance.</p>
+            </div>
+          </details>
+
+          <div class="project-links">
+            <a href="https://github.com/ansh1113/crossvit-cross-embodiment" target="_blank">
+              <i class="fab fa-github"></i> SOURCE_CODE
+            </a>
+          </div>
+
+        </div>
+      </div>
+
       <!-- Dynamic Handover -->
       <div class="project-card">
 
@@ -1017,26 +1017,6 @@
 
       <!-- Smaller Projects -->
 
-      <div class="project-card compact">
-
-        <h3>Terrain-Aware Navigation</h3>
-
-        <div class="tags">
-          <span class="tag">Elevation Mapping</span>
-          <span class="tag">ROS2</span>
-        </div>
-
-        <p class="project-desc">
-          Perception pipeline converting depth clouds to elevation maps for
-          quadruped footstep placement.
-        </p>
-
-        <div class="project-links">
-          <a href="https://github.com/ansh1113/Terrain-Aware-Locomotion-Pipeline-" target="_blank">
-            <i class="fab fa-github"></i> SOURCE_CODE
-          </a>
-        </div>
-      </div>
 
       <div class="project-card compact">
 
@@ -1055,6 +1035,27 @@
 
         <div class="project-links">
           <a href="https://github.com/ansh1113/RL-Locomotion-with-Safety-Layer" target="_blank">
+            <i class="fab fa-github"></i> SOURCE_CODE
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card compact">
+
+        <h3>Terrain-Aware Navigation</h3>
+
+        <div class="tags">
+          <span class="tag">Elevation Mapping</span>
+          <span class="tag">ROS2</span>
+        </div>
+
+        <p class="project-desc">
+          Perception pipeline converting depth clouds to elevation maps for
+          quadruped footstep placement.
+        </p>
+
+        <div class="project-links">
+          <a href="https://github.com/ansh1113/Terrain-Aware-Locomotion-Pipeline-" target="_blank">
             <i class="fab fa-github"></i> SOURCE_CODE
           </a>
         </div>
@@ -1131,7 +1132,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
   </section>
