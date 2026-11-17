@@ -188,6 +188,31 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     margin-bottom: 1rem;
 }
 .highlight-card .metric-row { margin-bottom: 0; }
+.highlight-wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: center;
+}
+.highlight-media { margin: 0; }
+.highlight-media video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.highlight-media figcaption {
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    margin-top: 0.5rem;
+}
+.highlight-wide .metric-row { margin-bottom: 1.25rem; }
+@media (max-width: 900px) {
+    .highlight-wide { grid-template-columns: 1fr; }
+}
 
 .core-strengths {
     display: flex;
