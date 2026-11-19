@@ -311,6 +311,7 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     transition: 0.3s;
 }
 .project-links a:hover { color: var(--accent); background: rgba(0, 255, 204, 0.1); }
+.project-links a + a { margin-left: 1.25rem; }
 
 /* --- CASE STUDY DETAILS --- */
 .case-study {
@@ -354,6 +355,84 @@ section { padding: 5rem 10%; position: relative; overflow: hidden; }
     font-size: 0.72rem;
     letter-spacing: 0.3px;
     margin-right: 4px;
+}
+
+/* Case-study visuals: v1 vs v2 GIFs and click-to-load live demo */
+.case-gifs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1rem 0;
+}
+.case-gifs figure { margin: 0; }
+.case-gifs img {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.case-gifs figcaption {
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+}
+.demo-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+}
+.demo-embed-launch {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: none;
+}
+.demo-embed-launch img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+}
+.demo-embed-launch:hover img,
+.demo-embed-launch:focus-visible img { opacity: 0.8; }
+.demo-embed-cta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: rgba(10, 10, 18, 0.85);
+    border: 1px solid var(--accent);
+    padding: 10px 14px;
+    white-space: nowrap;
+    text-align: center;
+}
+.demo-embed-cta small {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.65rem;
+    margin-top: 4px;
+}
+.demo-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+@media (max-width: 600px) {
+    .demo-embed { aspect-ratio: 3 / 4; }
 }
 
 /* --- VISION --- */

@@ -166,6 +166,25 @@
         </div>
       </div>
 
+      <!-- Visuomotor Diffusion Policy -->
+      <div class="highlight-card">
+        <i class="fas fa-arrows-rotate highlight-icon"></i>
+        <h3>Visuomotor Diffusion Policy with Failure Recovery</h3>
+        <p class="highlight-desc">
+          Pixel-based Diffusion Policy for Franka pick-and-place that learns to recover
+          from its own failed grasps, running live in your browser.
+        </p>
+        <div class="metric-row">
+          <span>95% success vs. 76% ACT</span>
+          <span>67→90% under distractors via recovery demos</span>
+        </div>
+        <div class="project-links">
+          <a href="https://ansh1113.github.io/mujoco-web-demo/" target="_blank" rel="noopener">
+            <i class="fas fa-display"></i> LIVE_DEMO
+          </a>
+        </div>
+      </div>
+
       <!-- IHSI Research Engineer -->
       <div class="highlight-card">
         <i class="fas fa-user-md highlight-icon"></i>
@@ -191,20 +210,6 @@
         <div class="metric-row">
           <span>100% constraint satisfaction</span>
           <span>5 morphologies, 6-23 DOF</span>
-        </div>
-      </div>
-
-      <!-- VLA Kitchen Agent -->
-      <div class="highlight-card">
-        <i class="fas fa-video highlight-icon"></i>
-        <h3>Vision-Language-Action System for Manipulation</h3>
-        <p class="highlight-desc">
-          An end-to-end pipeline turning unseen YouTube cooking videos into
-          executable robot commands, trained on 1.6k+ clips.
-        </p>
-        <div class="metric-row">
-          <span>77-85% action accuracy (held-out clips)</span>
-          <span>85-90% success in AI2-THOR</span>
         </div>
       </div>
 
@@ -712,13 +717,13 @@
       <div class="project-card featured">
 
         <div class="project-thumbnail">
-          <img src="diffusion_pick.gif" alt="Diffusion Policy Pick-and-Place Demo" loading="lazy">
+          <img src="diffusion_pick.gif" alt="Visuomotor Diffusion Policy re-grasping after a failed pick" loading="lazy">
           <div class="thumbnail-overlay"><i class="fas fa-expand"></i></div>
         </div>
 
         <div class="project-content">
 
-          <h3>Pixel Diffusion Policy for Pick-and-Place</h3>
+          <h3>Visuomotor Diffusion Policy with Failure Recovery</h3>
 
           <div class="tags">
             <span class="tag">Diffusion Policy</span>
@@ -730,14 +735,15 @@
 
           <p class="project-desc">
             Imitation learning from pixels on a MuJoCo Franka Panda: a CNN Diffusion
-            Policy trained on 200 scripted-expert demos from RGB (wrist + front) and
-            proprioception only, benchmarked against an ACT baseline and exported to ONNX.
+            Policy trained on 200 scripted-expert demos plus 100 recovery demos (v2),
+            from RGB (wrist + front) and proprioception only, benchmarked against ACT
+            and exported to ONNX.
           </p>
 
           <div class="metric-row">
-            <span>95% pick success (vs. 76% ACT)</span>
-            <span>90-93% under distractors, lighting, camera shift</span>
-            <span>100 randomized test rollouts</span>
+            <span>95% success (v2) vs. 76% ACT</span>
+            <span>distractors 67→90%, lighting 67→93% (v1→v2)</span>
+            <span>100 test rollouts per condition, paired McNemar</span>
           </div>
 
           <details class="case-study">
@@ -746,10 +752,32 @@
               <p><span class="case-label">Problem:</span> the v1 policy hit 87% nominally but couldn't recover from a missed grasp and dropped to 67% under distractors and lighting changes.</p>
               <p><span class="case-label">My contribution:</span> diagnosed the failure modes, added 100 recovery demos from a perturbation expert (with the mistake actions masked out of training) plus train-time distractors and photometric augmentation, and ran ablations with paired McNemar tests on identical seeds.</p>
               <p><span class="case-label">Finding:</span> recovery data was the biggest win on its own; augmentation only helped on top of it, and alone it cut nominal success from 87% to 57%.</p>
+              <p><span class="case-label">Deployment:</span> The v2 policy runs live in the browser at 45/50 layouts without ever training on browser renders.</p>
+
+              <div class="case-gifs">
+                <figure>
+                  <img src="diffusion_pick_v1_fail.gif" alt="v1 policy reaches the cube, misses the grasp, then hovers" loading="lazy">
+                  <figcaption>v1: misses the grasp, then hovers</figcaption>
+                </figure>
+                <figure>
+                  <img src="diffusion_pick.gif" alt="v2 policy knocks the cube, re-approaches and re-grasps" loading="lazy">
+                  <figcaption>v2: same seed, re-grasps and succeeds</figcaption>
+                </figure>
+              </div>
+
+              <div class="demo-embed" data-src="https://ansh1113.github.io/mujoco-web-demo/">
+                <button type="button" class="demo-embed-launch" aria-label="Load the live in-browser demo here">
+                  <img src="mujoco_pick_preview.jpg" alt="Preview of the in-browser Franka pick-and-place demo" loading="lazy">
+                  <span class="demo-embed-cta"><i class="fas fa-play"></i> LAUNCH_LIVE_DEMO <small>loads a 27 MB model</small></span>
+                </button>
+              </div>
             </div>
           </details>
 
           <div class="project-links">
+            <a href="https://ansh1113.github.io/mujoco-web-demo/" target="_blank" rel="noopener">
+              <i class="fas fa-display"></i> LIVE_DEMO
+            </a>
             <a href="https://github.com/ansh1113/diffusion-pick" target="_blank">
               <i class="fab fa-github"></i> SOURCE_CODE
             </a>
@@ -777,13 +805,16 @@
           </div>
 
           <p class="project-desc">
-            MuJoCo running fully in the browser: a Unitree G1 you can shove while a
-            capture-point balance controller keeps it standing (250N forward push vs.
-            50N for bare servos), and a Franka pick-and-place driven live by the
-            diffusion-pick ONNX policy.
+            MuJoCo running fully in the browser: the diffusion-pick v2 policy picks from
+            live camera images via onnxruntime-web (45/50 browser layouts), plus a Unitree
+            G1 you can shove while a capture-point balance controller keeps it standing
+            (250N forward push vs. 50N without).
           </p>
 
           <div class="project-links">
+            <a href="https://ansh1113.github.io/mujoco-web-demo/" target="_blank" rel="noopener">
+              <i class="fas fa-display"></i> LIVE_DEMO
+            </a>
             <a href="https://github.com/ansh1113/mujoco-web-demo" target="_blank">
               <i class="fab fa-github"></i> SOURCE_CODE
             </a>

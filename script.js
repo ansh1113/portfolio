@@ -433,3 +433,17 @@ if (container) {
         }
     });
 }
+
+// Click-to-load live demo embeds (the iframe and its 27 MB model load only on click)
+document.querySelectorAll('.demo-embed').forEach((embed) => {
+    const launch = embed.querySelector('.demo-embed-launch');
+    if (!launch) return;
+    launch.addEventListener('click', () => {
+        const frame = document.createElement('iframe');
+        frame.src = embed.dataset.src;
+        frame.title = 'Live in-browser MuJoCo demo';
+        frame.allow = 'fullscreen';
+        frame.setAttribute('allowfullscreen', '');
+        launch.replaceWith(frame);
+    });
+});
